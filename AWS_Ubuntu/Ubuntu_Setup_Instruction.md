@@ -74,5 +74,24 @@ vncserver
 
 ## How to install Eclipse in Ubuntu:
 1. Open terminal, type firefox to open the browser.
-2. Search for `Eclipse`, and then download the zip file, uncompress…
+2. Search for `Eclipse`, and then download the zip file, uncompress.
 3. Launch Eclipse, click `Help —> Install new software —> Add —> ADT Plugin+https://dl-ssl.google.com/android/eclipse/`
+4. We recommend that you change the memory requirements in the Eclipse initialization file which is
+  - `<Eclipse installation directory>/eclipse.ini` on Linux, to the following:
+```
+-Xms1g
+-Xmx16g
+```
+## How to install Android SDK Tools 25 in Ubuntu:
+1. Search for https://developer.android.com/studio/index.html, navigate to the bottom of the page, and find the sdk tools only download section. Download the latest Android SDK Tools 25, and save the zip file locally. 
+2. Open terminal, navigate to the path where you stored the downloaded sdk tools zip file, unzip it by using command `unzip SOURCE DEST`.
+3. Add path of `tools/android` by adding the following line to `~/.bashrc` file. (Edit `~/.bashrc` by following: `vi ~/.bashrc` -> press i -> copy paste the text -> press esc, type :wq)
+
+## Download Android SDK Tools 19 using the `sdkmanager`:
+1. Run in root: `sudo -s`
+2. List all android sdk: `android list sdk --all`
+3. Find the number for Android SDK Tools 19
+4. Download the sdk tools using: `android update -u -a -t #` (# refers to the no. of items that we want to download)
+5. Congratulations! You have downloaded the Android SDK Tools 19 successfully! 
+
+## So far, we have set up all required software dependencies for running DroidSafe successfully.
