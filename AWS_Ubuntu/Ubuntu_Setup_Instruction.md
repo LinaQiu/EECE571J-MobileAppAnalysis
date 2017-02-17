@@ -11,7 +11,7 @@
 ## How to install Java, Python3, Ant in the AMS EC2 instance:
 1. Update packages: `sudo apt-get update`
 2. To check operating system architecture: `uname -i`
-3. Install Java jdk: `sudo apt install openjdk-8-jre-headless`
+3. Install Java jdk: `sudo apt install openjdk-8-jre-headless` `sudo apt-get install openjdk-8-jdk` (openjdk is required to run ant)
 4. Install Python3: `sudo apt install python3`
 5. Install Ant: `sudo apt install ant`
 6. How to copy file from local machine to remote server securely: `scp -i /path/my-key-pair.pem /path/fileName ubuntu@Public DNS:~`
