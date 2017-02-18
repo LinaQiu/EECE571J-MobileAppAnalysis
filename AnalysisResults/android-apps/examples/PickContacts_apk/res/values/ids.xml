@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="pick_contact">false</item>
+    <item type="id" name="pick_person">false</item>
+    <item type="id" name="pick_phone">false</item>
+    <item type="id" name="pick_address">false</item>
+</resources>

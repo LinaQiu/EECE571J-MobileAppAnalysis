@@ -1,0 +1,64 @@
+Entry Point: <com.example.android.apis.content.PickContact_apk$ResultDisplayer: void onClick(android.view.View)> (Line: com.example.android.apis.content.PickContact_apk 65)
+
+Sink: <android.app.Activity: void startActivityForResult(android.content.Intent,int)>
+Lines: 
+Receiver Sources: 
+	$r6 = virtualinvoke $r5.<android.telephony.TelephonyManager: java.lang.String getDeviceId()>() (UNIQUE_IDENTIFIER)
+Arg 0 Sources: 
+	$r6 = virtualinvoke $r5.<android.telephony.TelephonyManager: java.lang.String getDeviceId()>() (UNIQUE_IDENTIFIER)
+
+Entry Point: <com.example.android.apis.content.PickContact_apk$ResultDisplayer: void onClick(android.view.View)> (Line: com.example.android.apis.content.PickContact_apk 65)
+
+Sink: <android.app.Activity: void startActivityForResult(android.content.Intent,int)>
+Lines: 
+Receiver Sources: 
+	$r6 = virtualinvoke $r5.<android.telephony.TelephonyManager: java.lang.String getDeviceId()>() (UNIQUE_IDENTIFIER)
+Arg 0 Sources: 
+	$r6 = virtualinvoke $r5.<android.telephony.TelephonyManager: java.lang.String getDeviceId()>() (UNIQUE_IDENTIFIER)
+
+Entry Point: <com.example.android.apis.content.PickContact_apk$ResultDisplayer: void onClick(android.view.View)> (Line: com.example.android.apis.content.PickContact_apk 65)
+
+Sink: <android.app.Activity: void startActivityForResult(android.content.Intent,int)>
+Lines: 
+Receiver Sources: 
+	$r6 = virtualinvoke $r5.<android.telephony.TelephonyManager: java.lang.String getDeviceId()>() (UNIQUE_IDENTIFIER)
+Arg 0 Sources: 
+	$r6 = virtualinvoke $r5.<android.telephony.TelephonyManager: java.lang.String getDeviceId()>() (UNIQUE_IDENTIFIER)
+
+Entry Point: <com.example.android.apis.content.PickContact_apk$ResultDisplayer: void onClick(android.view.View)> (Line: com.example.android.apis.content.PickContact_apk 65)
+
+Sink: <android.app.Activity: void startActivityForResult(android.content.Intent,int)>
+Lines: 
+Receiver Sources: 
+	$r6 = virtualinvoke $r5.<android.telephony.TelephonyManager: java.lang.String getDeviceId()>() (UNIQUE_IDENTIFIER)
+Arg 0 Sources: 
+	$r6 = virtualinvoke $r5.<android.telephony.TelephonyManager: java.lang.String getDeviceId()>() (UNIQUE_IDENTIFIER)
+
+Entry Point: <com.example.android.apis.content.PickContact_apk: void onActivityResult(int,int,android.content.Intent)> (Line: com.example.android.apis.content.PickContact_apk 102)
+
+Sink: <org.apache.http.impl.client.AbstractHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>
+Lines: 
+Receiver Sources: 
+	$r6 = virtualinvoke $r5.<android.telephony.TelephonyManager: java.lang.String getDeviceId()>() (UNIQUE_IDENTIFIER)
+Arg 0 Sources: 
+	$r6 = virtualinvoke $r5.<android.telephony.TelephonyManager: java.lang.String getDeviceId()>() (UNIQUE_IDENTIFIER)
+
+Entry Point: <com.example.android.apis.content.PickContact_apk: void onActivityResult(int,int,android.content.Intent)> (Line: com.example.android.apis.content.PickContact_apk 102)
+
+Sink: <org.apache.http.impl.client.AbstractHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>
+Lines: 
+Receiver Sources: 
+	$r6 = virtualinvoke $r5.<android.telephony.TelephonyManager: java.lang.String getDeviceId()>() (UNIQUE_IDENTIFIER)
+Arg 0 Sources: 
+	$r6 = virtualinvoke $r5.<android.telephony.TelephonyManager: java.lang.String getDeviceId()>() (UNIQUE_IDENTIFIER)
+
+
+FLOW:<com.example.android.apis.content.PickContact_apk: void onActivityResult(int,int,android.content.Intent)>|{<org.apache.http.impl.client.AbstractHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>/NETWORK/Line: com.example.android.apis.content.PickContact_apk 109}<={<android.telephony.TelephonyManager: java.lang.String getDeviceId()>/UNIQUE_IDENTIFIER/Line: com.example.android.apis.content.PickContact_apk 66/ARG}
+
+FLOW:<com.example.android.apis.content.PickContact_apk: void onActivityResult(int,int,android.content.Intent)>|{<org.apache.http.impl.client.AbstractHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>/NETWORK/Line: com.example.android.apis.content.PickContact_apk 109}<={<android.telephony.TelephonyManager: java.lang.String getDeviceId()>/UNIQUE_IDENTIFIER/Line: com.example.android.apis.content.PickContact_apk 66/RECEIVER}
+
+FLOW:<com.example.android.apis.content.PickContact_apk$ResultDisplayer: void onClick(android.view.View)>|{<android.app.Activity: void startActivityForResult(android.content.Intent,int)>/IPC/Line: com.example.android.apis.content.PickContact_apk 73}<={<android.telephony.TelephonyManager: java.lang.String getDeviceId()>/UNIQUE_IDENTIFIER/Line: com.example.android.apis.content.PickContact_apk 66/RECEIVER}
+
+FLOW:<com.example.android.apis.content.PickContact_apk$ResultDisplayer: void onClick(android.view.View)>|{<android.app.Activity: void startActivityForResult(android.content.Intent,int)>/IPC/Line: com.example.android.apis.content.PickContact_apk 73}<={<android.telephony.TelephonyManager: java.lang.String getDeviceId()>/UNIQUE_IDENTIFIER/Line: com.example.android.apis.content.PickContact_apk 66/ARG}
+
+

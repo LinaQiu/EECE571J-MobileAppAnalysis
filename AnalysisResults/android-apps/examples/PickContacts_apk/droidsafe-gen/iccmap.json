@@ -1,0 +1,67 @@
+{
+  "indicator-type": "ICC: Resolved Map",
+  "visibility": {
+    "icc_source": true
+  },
+  "display": {},
+  "contents": [
+    {
+      "type": "icc_source",
+      "label": "com.example.android.apis.content.PickContact_apk$ResultDisplayer",
+      "contents": [
+        {
+          "type": "icc_stmt",
+          "signature": "<com.example.android.apis.content.PickContact_apk: void startActivityForResult(android.content.Intent,int)>",
+          "link": "as_call",
+          "contents": [
+            {
+              "type": "icc_dest",
+              "label": "com.example.android.apis.content.PickContact_apk void setIntent(android.content.Intent)",
+              "src-loc": {
+                "class": "com.example.android.apis.content.PickContact_apk",
+                "line": 1
+              }
+            },
+            {
+              "type": "icc_dest",
+              "label": "com.example.android.apis.content.PickContact_apk void setIntent(android.content.Intent)",
+              "src-loc": {
+                "class": "com.example.android.apis.content.PickContact_apk",
+                "line": 1
+              }
+            },
+            {
+              "type": "icc_dest",
+              "label": "com.example.android.apis.content.PickContact_apk void setIntent(android.content.Intent)",
+              "src-loc": {
+                "class": "com.example.android.apis.content.PickContact_apk",
+                "line": 1
+              }
+            },
+            {
+              "type": "icc_dest",
+              "label": "com.example.android.apis.content.PickContact_apk void setIntent(android.content.Intent)",
+              "src-loc": {
+                "class": "com.example.android.apis.content.PickContact_apk",
+                "line": 1
+              }
+            },
+            {
+              "type": "icc_dest",
+              "signature": "<com.example.android.apis.content.PickContact_apk: void onActivityResult(int,int,android.content.Intent)>",
+              "link": "as_entry_point",
+              "src-loc": {
+                "class": "com.example.android.apis.content.PickContact_apk",
+                "line": 102
+              }
+            }
+          ],
+          "src-loc": {
+            "class": "com.example.android.apis.content.PickContact_apk",
+            "line": 73
+          }
+        }
+      ]
+    }
+  ]
+}

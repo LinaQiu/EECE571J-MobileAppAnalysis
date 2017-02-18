@@ -1,0 +1,104 @@
+{
+  "indicator-type" : "Catch Blocks",
+  "visibility" :  {
+    "direct-call" : true,
+    "call-chain" : false,
+    "syscall"    : true
+  },
+  "display"    :  {
+    "calls"      : false,
+    "syscalls"   : false,
+    "score"      : false
+  },
+ "contents"   :  [
+  { "type"       : "cblock",
+    "link"       : "as_call",
+    "signature"  : "<com.example.android.apis.content.PickContact_apk: void onActivityResult(int,int,android.content.Intent)>",
+    "src-loc"    : { "class"      : "com.example.android.apis.content.PickContact_apk", "line"       : 110},
+    "syscalls"   : 7,
+    "calls"      : 9,
+    "score"      : 7,
+    "contents"   :  [
+    { "type"       : "direct-call",
+      "link"       : "as_call",
+      "signature"  : "<java.lang.Throwable: void printStackTrace()>",
+      "src-loc"    : { "class"      : "com.example.android.apis.content.PickContact_apk", "line"       : 111},
+      "syscalls"   : 1,
+      "calls"      : 1,
+      "score"      : 0
+    },
+    { "type"       : "direct-call",
+      "link"       : "as_call",
+      "signature"  : "<org.xmlpull.v1.XmlPullParserException: void printStackTrace()>",
+      "src-loc"    : { "class"      : "com.example.android.apis.content.PickContact_apk", "line"       : 111},
+      "syscalls"   : 6,
+      "calls"      : 7,
+      "score"      : 7,
+      "contents"   :  [
+      { "type"       : "syscall",
+        "link"       : "as_call",
+        "signature"  : "<java.io.PrintStream: void println(java.lang.String)>",
+        "src-loc"    : { "class"      : "org.xmlpull.v1.XmlPullParserException", "line"       : 125},
+        "syscalls"   : 1,
+        "calls"      : 1,
+        "score"      : 7
+      },
+      { "type"       : "syscall",
+        "link"       : "as_call",
+        "signature"  : "<java.lang.String: void <init>(java.lang.AbstractStringBuilder)>",
+        "syscalls"   : 1,
+        "calls"      : 1,
+        "score"      : 0
+      },
+      { "type"       : "syscall",
+        "link"       : "as_call",
+        "signature"  : "<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>",
+        "src-loc"    : { "class"      : "org.xmlpull.v1.XmlPullParserException", "line"       : 125},
+        "syscalls"   : 1,
+        "calls"      : 1,
+        "score"      : 5
+      },
+      { "type"       : "syscall",
+        "link"       : "as_call",
+        "signature"  : "<java.lang.StringBuilder: void <init>()>",
+        "src-loc"    : { "class"      : "org.xmlpull.v1.XmlPullParserException", "line"       : 125},
+        "syscalls"   : 1,
+        "calls"      : 1,
+        "score"      : 0
+      },
+      { "type"       : "syscall",
+        "link"       : "as_call",
+        "signature"  : "<java.lang.Throwable: java.lang.String getMessage()>",
+        "src-loc"    : { "class"      : "org.xmlpull.v1.XmlPullParserException", "line"       : 125},
+        "syscalls"   : 1,
+        "calls"      : 1,
+        "score"      : 0
+      },
+      { "type"       : "syscall",
+        "link"       : "as_call",
+        "signature"  : "<java.lang.Throwable: void printStackTrace()>",
+        "src-loc"    : { "class"      : "org.xmlpull.v1.XmlPullParserException", "line"       : 122},
+        "syscalls"   : 1,
+        "calls"      : 1,
+        "score"      : 0
+      }
+    ]}
+  ]},
+  { "type"       : "cblock",
+    "link"       : "as_call",
+    "signature"  : "<com.example.android.apis.content.PickContact_apk: void onActivityResult(int,int,android.content.Intent)>",
+    "src-loc"    : { "class"      : "com.example.android.apis.content.PickContact_apk", "line"       : 132},
+    "syscalls"   : 0,
+    "calls"      : 1,
+    "score"      : 0
+  },
+  { "type"       : "cblock",
+    "link"       : "as_call",
+    "signature"  : "<com.example.android.apis.content.PickContact_apk: void onActivityResult(int,int,android.content.Intent)>",
+    "src-loc"    : { "class"      : "com.example.android.apis.content.PickContact_apk", "line"       : 132},
+    "syscalls"   : 0,
+    "calls"      : 1,
+    "score"      : 0
+  },
+  {}
+]}

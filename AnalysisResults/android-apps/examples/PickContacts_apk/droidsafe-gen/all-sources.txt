@@ -1,0 +1,4 @@
+$r6 = virtualinvoke $r5.<android.telephony.TelephonyManager: java.lang.String getDeviceId()>() in <com.example.android.apis.content.PickContact_apk$ResultDisplayer: void onClick(android.view.View)>
+interfaceinvoke $r3.<org.apache.http.client.HttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>($r5) in <com.example.android.apis.content.PickContact_apk: void onActivityResult(int,int,android.content.Intent)>
+$r11 = virtualinvoke $r1.<android.content.Intent: android.net.Uri getData()>() in <com.example.android.apis.content.PickContact_apk: void onActivityResult(int,int,android.content.Intent)>
+$i2 = interfaceinvoke $r14.<android.database.Cursor: int getInt(int)>(0) in <com.example.android.apis.content.PickContact_apk: void onActivityResult(int,int,android.content.Intent)>

@@ -1,0 +1,3 @@
+
+intentObjects,intentCalls,callsWithResolvedIntents,callsWithUnresolvedIntent,callsTargetNotInApp,inAppComponentsTotalTargets,resolvedImplictIntents,resolvedExplicitIntents,contentProviderOps,contentProviderOpsResolvedUri,contentProviderOpsUnresolvedUri,contentProviderOpsInAppTotalTargets,contentProviderOpsInterAppTarget
+4,1,0,1,0,0,0,0,1,1,0,0,1

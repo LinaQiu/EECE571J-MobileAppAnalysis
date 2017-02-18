@@ -1,0 +1,58 @@
+{
+  "indicator-type" : "Call Graphs from Entry Points",
+  "visibility" :  {  },
+  "display"    :  {
+    "calls"      : false,
+    "syscalls"   : false,
+    "score"      : false
+  },
+ "contents"   :  [
+  { "type"       : "entry-point",
+    "link"       : "as_entry_point",
+    "signature"  : "<com.example.android.apis.content.PickContact_apk: void <init>()>",
+    "src-loc"    : { "class"      : "com.example.android.apis.content.PickContact_apk", "line"       : 51},
+    "syscalls"   : 0,
+    "calls"      : 1,
+    "score"      : 0
+  },  { "type"       : "entry-point",
+    "link"       : "as_entry_point",
+    "signature"  : "<com.example.android.apis.content.PickContact_apk: void onCreate(android.os.Bundle)>",
+    "src-loc"    : { "class"      : "com.example.android.apis.content.PickContact_apk", "line"       : 79},
+    "syscalls"   : 0,
+    "calls"      : 2,
+    "score"      : 0,
+    "contents"   :  [
+    { "type"       : "call-chain",
+      "link"       : "as_call",
+      "signature"  : "<com.example.android.apis.content.PickContact_apk$ResultDisplayer: void <init>(com.example.android.apis.content.PickContact_apk,java.lang.String,java.lang.String)>",
+      "src-loc"    : { "class"      : "com.example.android.apis.content.PickContact_apk", "line"       : 84},
+      "syscalls"   : 0,
+      "calls"      : 1,
+      "score"      : 0
+    }
+  ]},  { "type"       : "entry-point",
+    "link"       : "as_entry_point",
+    "signature"  : "<com.example.android.apis.content.PickContact_apk$ResultDisplayer: void onClick(android.view.View)>",
+    "src-loc"    : { "class"      : "com.example.android.apis.content.PickContact_apk", "line"       : 65},
+    "syscalls"   : 0,
+    "calls"      : 2,
+    "score"      : 0,
+    "contents"   :  [
+    { "type"       : "call-chain",
+      "link"       : "as_call",
+      "signature"  : "<com.example.android.apis.content.PickContact_apk: void onActivityResult(int,int,android.content.Intent)>",
+      "source-signature" : "<android.app.Activity: void startActivityForResult(android.content.Intent,int)>",
+      "src-loc"    : { "class"      : "com.example.android.apis.content.PickContact_apk", "line"       : 73},
+      "syscalls"   : 0,
+      "calls"      : 1,
+      "score"      : 0
+    }
+  ]},  { "type"       : "entry-point",
+    "link"       : "as_entry_point",
+    "signature"  : "<com.example.android.apis.content.PickContact_apk: void onActivityResult(int,int,android.content.Intent)>",
+    "src-loc"    : { "class"      : "com.example.android.apis.content.PickContact_apk", "line"       : 102},
+    "syscalls"   : 0,
+    "calls"      : 1,
+    "score"      : 0
+  },  {}
+]}

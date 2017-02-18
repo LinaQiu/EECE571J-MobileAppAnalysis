@@ -1,0 +1,67 @@
+{
+  "indicator-type": "Sensitive Sources",
+  "visibility": {},
+  "display": {
+    "info_kinds": true
+  },
+  "contents": [
+    {
+      "label": "com.example.android.apis.content.PickContact_apk$ResultDisplayer",
+      "contents": [
+        {
+          "signature": "<com.example.android.apis.content.PickContact_apk$ResultDisplayer: void onClick(android.view.View)>",
+          "contents": [
+            {
+              "signature": "<android.telephony.TelephonyManager: java.lang.String getDeviceId()>",
+              "link": "as_call",
+              "info_kinds": "UNIQUE_IDENTIFIER ",
+              "src-loc": {
+                "class": "com.example.android.apis.content.PickContact_apk",
+                "line": 66
+              }
+            }
+          ],
+          "link": "as_entry_point"
+        }
+      ]
+    },
+    {
+      "label": "com.example.android.apis.content.PickContact_apk",
+      "contents": [
+        {
+          "signature": "<com.example.android.apis.content.PickContact_apk: void onActivityResult(int,int,android.content.Intent)>",
+          "contents": [
+            {
+              "signature": "<android.content.Intent: android.net.Uri getData()>",
+              "link": "as_call",
+              "info_kinds": "IPC ",
+              "src-loc": {
+                "class": "com.example.android.apis.content.PickContact_apk",
+                "line": 114
+              }
+            },
+            {
+              "signature": "<org.apache.http.impl.client.AbstractHttpClient: org.apache.http.HttpResponse execute(org.apache.http.client.methods.HttpUriRequest)>",
+              "link": "as_call",
+              "info_kinds": "NETWORK ",
+              "src-loc": {
+                "class": "com.example.android.apis.content.PickContact_apk",
+                "line": 109
+              }
+            },
+            {
+              "signature": "<droidsafe.concrete.DSCursor: int getInt(int)>",
+              "link": "as_call",
+              "info_kinds": "DATABASE_INFORMATION ",
+              "src-loc": {
+                "class": "com.example.android.apis.content.PickContact_apk",
+                "line": 122
+              }
+            }
+          ],
+          "link": "as_entry_point"
+        }
+      ]
+    }
+  ]
+}

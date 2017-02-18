@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android)
+
+Name: AndroidManifest.xml
+SHA1-Digest: tgpQKHCIPfeOFhB9bxB1G48X06Y=
+
+Name: resources.arsc
+SHA1-Digest: hC4VBajWm6scsdsAIPv2zwejU5M=
+
+Name: classes.dex
+SHA1-Digest: +adj5UiSDNHpNmV65aSCT4eizp8=
+
+Name: res/layout/pick_contact.xml
+SHA1-Digest: YHDVykKevWfPQU6E9zoPTvYoASQ=
+
