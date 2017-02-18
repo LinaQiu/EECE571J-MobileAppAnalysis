@@ -107,8 +107,8 @@ git clone <Droidsafe clone URL>
   - `DROIDSAFE_SRC_HOME` - the root directory of the local Droidsafe repository.
 ```
 vim ~/.bashrc
-
-export PATH=${PATH}:${DROIDSAFE_SRC_HOME}
+DROIDSAFE_SRC_HOME=the rooot directory of the local Droidsafe repository
+export DROIDSAFE_SRC_HOME
 ```
 3.Build the Droidsafe static analyzer by execute the following ant command from the Droidsafe installation directory.
 ```
