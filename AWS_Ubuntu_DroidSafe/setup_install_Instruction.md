@@ -11,7 +11,7 @@
 ## How to install Java, Python3, Ant in the AMS EC2 instance:
 1. Update packages: `sudo apt-get update`
 2. To check operating system architecture: `uname -i`
-3. Install Java jdk: `sudo apt install openjdk-8-jre-headless`
+3. Install Java jdk: `sudo apt install openjdk-8-jre-headless` `sudo apt-get install openjdk-8-jdk` (openjdk is required to run ant)
 4. Install Python3: `sudo apt install python3`
 5. Install Ant: `sudo apt install ant`
 6. How to copy file from local machine to remote server securely: `scp -i /path/my-key-pair.pem /path/fileName ubuntu@Public DNS:~`
@@ -95,3 +95,36 @@ vncserver
 5. Congratulations! You have downloaded the Android SDK Tools 19 successfully! 
 
 ## So far, we have set up all required software dependencies for running DroidSafe successfully.
+
+## Install DroidSafe
+### Install the DroidSafe Analyzer
+1.Clone the Droidsafe repository from GitHut to local directory.
+```
+git clone <Droidsafe clone URL>
+```
+
+2.Set the environment variable
+  - `DROIDSAFE_SRC_HOME` - the root directory of the local Droidsafe repository.
+```
+vim ~/.bashrc
+
+export PATH=${PATH}:${DROIDSAFE_SRC_HOME}
+```
+3.Build the Droidsafe static analyzer by execute the following ant command from the Droidsafe installation directory.
+```
+ant compile
+```
+
+### Install the Droidsafe Eclipse Plugin
+1.Eclipse should be closed at this point.
+2.Edit the file **build.properties**. (It can be found under the Droidsafe installation directory/src/eclipse/build.properties) Change the value for target.eclipse.platform by following the instruction below:
+```
+target.eclipse.platform=<root directory of your eclipse installation>
+```
+3.Build and install the Droidsafe plugin using the shell commands: (you need to navigate to the Droidsafe installation directory first)
+```
+cd $DROIDSAFE_SRC_HOME
+ant plugin-deploy
+```
+
+If ant succeeds, a new eclipse plugin has been installed in the **plugins** directory under the eclipse installation directory.
