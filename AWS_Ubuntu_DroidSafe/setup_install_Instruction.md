@@ -85,13 +85,33 @@ vncserver
 ## How to install Android SDK Tools 25 in Ubuntu:
 1. Search for https://developer.android.com/studio/index.html, navigate to the bottom of the page, and find the sdk tools only download section. Download the latest Android SDK Tools 25, and save the zip file locally. 
 2. Open terminal, navigate to the path where you stored the downloaded sdk tools zip file, unzip it by using command `unzip SOURCE DEST`.
-3. Add path of `tools/android` by adding the following line to `~/.bashrc` file. (Edit `~/.bashrc` by following: `vi ~/.bashrc` -> press i -> copy paste the text -> press esc, type :wq)
+3. Add path of `/home/awsgui/tools/` by adding the following line to `~/.bashrc` file. (Edit `~/.bashrc` by following: `vi ~/.bashrc` -> press i -> copy paste the text -> press esc, type :wq)
+
+export PATH=/home/awsgui/tools/:${PATH}
+
+then update  `~/.bashrc` file with the command in command line :
+.  ~/.bashrc
+
 
 ## Download Android SDK Tools 19 using the `sdkmanager`:
 1. Run in root: `sudo -s`
 2. List all android sdk: `android list sdk --all`
 3. Find the number for Android SDK Tools 19
 4. Download the sdk tools using: `android update -u -a -t #` (# refers to the no. of items that we want to download)
+if the above command not working, try those below:
+
+install all available platforms from command line
+```
+android update sdk --no-ui ## --no-ui here means from command line
+```
+install one of the packages
+```
+android update sdk --no-ui --all --filter <Package No.>
+```
+install multiple packages
+```
+android update sdk --no-ui --all --filter 1,2,3,....,n
+```
 5. Congratulations! You have downloaded the Android SDK Tools 19 successfully! 
 
 ## So far, we have set up all required software dependencies for running DroidSafe successfully.
@@ -101,23 +121,35 @@ vncserver
 1.Clone the Droidsafe repository from GitHut to local directory.
 ```
 git clone <Droidsafe clone URL>
+git clone https://github.com/MIT-PAC/droidsafe-src
 ```
 
-2.Set the environment variable
+2. Set the environment variable 
+  - `ANDROID_SDK_HOME` - the location of android SDKs.
   - `DROIDSAFE_SRC_HOME` - the root directory of the local Droidsafe repository.
+  - `DROIDSAFE_MEMORY` (optional) - max memory allocated to Droidsafe
 ```
 vim ~/.bashrc
-DROIDSAFE_SRC_HOME=the rooot directory of the local Droidsafe repository
-export DROIDSAFE_SRC_HOME
+export ANDROID_SDK_HOME=/home/awsgui/ #upper level of /sources/ folder
+export DROIDSAFE_SRC_HOME=/home/awsgui/droidsafe-src  #the root directory of the local Droidsafe repository
+export DROIDSAFE_MEMORY=32
 ```
 3.Build the Droidsafe static analyzer by execute the following ant command from the Droidsafe installation directory.
 ```
+cd $DROIDSAFE_SRC_HOME
 ant compile
+# build might fail due to permission issue. Can be solved by running as Root
 ```
+
 
 ### Install the Droidsafe Eclipse Plugin
 1.Eclipse should be closed at this point.
-2.Edit the file **build.properties**. (It can be found under the Droidsafe installation directory/src/eclipse/build.properties) Change the value for target.eclipse.platform by following the instruction below:
+2.Edit the file **build.properties**. (It can be found under the $DROIDSAFE_SRC_HOME/src/eclipse/build.properties) 
+```
+cd $DROIDSAFE_SRC_HOME/src/eclipse/
+cp build.properties.template build.properties
+```
+Change the value for target.eclipse.platform by following the instruction below:
 ```
 target.eclipse.platform=<root directory of your eclipse installation>
 ```
