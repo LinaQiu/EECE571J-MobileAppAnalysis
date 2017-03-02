@@ -96,7 +96,7 @@ Calling scalar optimizations.
 Implementing native methods.
 Resolving resources and Manifest.
 [Fatal Error] styles.xml:1:1: Premature end of file.
-ERROR: Couldn't parse the XmlFile /home/DroidsafeAWSGUI/DroidSafe/droidsafe-src/android-apps/examples/LeakyApp_apk/res/values-v22/styles.xml : org.xml.sax.SAXParseException; systemId: file:/home/DroidsafeAWSGUI/DroidSafe/droidsafe-src/android-apps/examples/LeakyApp_apk/res/values-v22/styles.xml; lineNumber: 1; columnNumber: 1; Premature end of file.
+ERROR: Couldn't parse the XmlFile /home/DroidsafeAWSGUI/DroidSafe/droidsafe-src/android-apps/examples/LeakyApp_apk/res/values-v22/styles.xml: org.xml.sax.SAXParseException; systemId: file:/home/DroidsafeAWSGUI/DroidSafe/droidsafe-src/android-apps/examples/LeakyApp_apk/res/values-v22/styles.xml; lineNumber: 1; columnNumber: 1; Premature end of file.
 ERROR: Error resolving resources and manifest: {}
 java.lang.NullPointerException: null
 	at droidsafe.android.app.resources.BaseElement.<init>(BaseElement.java:55) ~[droidsafe-core.jar:na]
