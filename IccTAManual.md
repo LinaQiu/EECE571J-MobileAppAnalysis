@@ -70,38 +70,41 @@ ANDROID_JARS
 # Customize IccTA
 1. in res/jdbc.xml, where you need to customise the information of your database.
 ```
-cd $ICCTA_DIR
-vi res/jdbc.xml
+cd $ICCTA_DIR/release/res
+vi jdbc.xml
 
 ```
-for example, edit it to:
+first, check your port number
 ```
+mysql> show variables like 'port';
+```
+for example, my local database called IccTA and my port number is 3306, then I edit the xml to:
+```
+<?xml version="1.0" encoding="UTF-8"?>
 <databases>
         <database>
                 <name>IccTA</name>
                 <driver>com.mysql.jdbc.Driver</driver>
-                <url>jdbc:mysql://127.0.0.1:3306/cc</url>
-                
-                
-                <!--<url>jdbc:mysql://localhost/IccTA</url>-->
-                <!--<url>jdbc:mysql://localhost/IccTA</url>-->
-                <!--<url>jdbc:mysql://localhost/IccTA</url> -->
+                <url>jdbc:mysql://127.0.0.1:3306/IccTA</url>
+
                 <username>root</username>
                 <password>root</password>
                 <charset>N/A</charset>   <!-- currently not used -->
         </database>
 </databases>
+~                      
 ```
 * queries might be useful:
 ```
 mysql> select user();
 mysql> show variables;
-mysql> show variables where variable_name = 'port' # or any other variables
+mysql> show variable like 'port'; # or any other variables
 ```
 
 # Launch IccTA
 ```
 # First, launching Epicc to build ICC links for an Android application.
+cd $ICCTA_DIR/iccProvider/epicc/
 ./runEpicc.sh $path_of_apk
 
 # Then, running IccTA for the above application. 
