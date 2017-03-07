@@ -20,7 +20,7 @@ public class SendOutDeviceID extends Service {
 
         if (intent!=null) {
             String deviceID = intent.getStringExtra("DEVICE_ID");
-            Log.e("Leakage","received device id: "+deviceID);
+            Log.e("Leakage","InAppComponents device id: "+deviceID);
         }
         return START_STICKY;
     }
