@@ -87,7 +87,7 @@
 
 -pta <package>                    Run with pta package: spark, paddle, geo (default: POINTS_TO_ANALYSIS_PACKAGE=spark)
 
--ptadump                          Dump pta to ./droidsafe/pta.txt (If has ptadump, then set dumpPta=true. if dumpPta=true, then dump pta to a file; default: dumpPta=true)
+-ptadump                          Dump pta to ./droidsafe/pta.txt (If has ptadump, then set dumpPta=true. if dumpPta=true, then dump pta to a file; default: dumpPta=false)
 
 -reportonlyargsflows              For infoflow reporting, report only flows through args and receiver of sinks. (If has reportonlyargsflows, then set reportOnlyArgFlows=true. If true, when querying the info flow through Method.java, only report flows through args and receiver; default (reportOnlyArgFlows): false)
 

@@ -1,6 +1,6 @@
 import os, csv
 
-APK_ROOT_FOLDER = "/Users/lina/Documents/EECE571J/Project/APK_Julia"
+APK_ROOT_FOLDER = "/Users/lina/Documents/EECE571J/Project/FDroid"
 MB = 1000000
 KB = 1000
 
@@ -22,9 +22,9 @@ class DroidsafeHelper(object):
 			print "The APK file is either too small or too big."
 
 
-	def RetrieveAPKSize(self, APKFolderPath):
-		os.chdir(APKFolderPath)
-		initAPKNames = os.listdir(APKFolderPath)
+	def RetrieveAPKSize(self, apkFilePath):
+		os.chdir(apkFilePath)
+		initAPKNames = os.listdir(apkFilePath)
 		for apk in initAPKNames:
 			if "apk" in apk:
 				apkInfo = os.stat(apk)
@@ -34,13 +34,15 @@ class DroidsafeHelper(object):
 				continue
 				
 
-	def RenameAPKWithSize(self, APKFolderPath):
-		os.chdir(APKFolderPath)
-		self.RetrieveAPKSize(APKFolderPath)
+	def RenameAPKWithSize(self, apkFilePath):
+		os.chdir(apkFilePath)
+		self.RetrieveAPKSize(apkFilePath)
 	 	for apkInfo in enumerate(self.apk_size_mapping):
 	 		print apkInfo[1][0]
 	 		print apkInfo[1][1]
 	 		os.rename(apkInfo[1][0],apkInfo[1][1]+"_"+apkInfo[1][0])
+	 		os.chdir(APKFolderPath)
+
 
 	def _total_size(self, source):
 		total_size = os.path.getsize(source)
@@ -59,20 +61,23 @@ class DroidsafeHelper(object):
 			writer.writerows(data)
 			print "Finished to write file to a csv."
 
-	def ListSmaliAndAPKSize(self, APKFolderPath):
+	def ListJarAndAPKSize(self, APKFolderPath):
 		os.chdir(APKFolderPath)
 		reversedAPKList = os.listdir(APKFolderPath)
 		for reversedAPK in reversedAPKList:
 			if ".csv" in reversedAPK or ".DS_Store" in reversedAPK:
 				continue
 			else:
+				#self.RenameAPKWithSize(reversedAPK)
 				reversedAPKSize = reversedAPK[:reversedAPK.index("_")]
 				reversedAPKPath = APKFolderPath+"/"+reversedAPK
 				os.chdir(reversedAPKPath)
 				fileList = os.listdir(reversedAPKPath)
 				for item in fileList:
 					if ".apk" in item:
-						apkName = item[item.index("_")+1:len(item)]
+						#Uncomment the following line if the apk file name is renamed previously with apk size at the beginning
+						#apkName = item[item.index("_")+1:len(item)]
+						apkName=item
 						originalAPKSize = os.stat(item).st_size
 					elif "dex2jar" in item:
 						originaldex2jarSize = self._total_size(reversedAPKPath+"/dex2jar")
@@ -82,4 +87,4 @@ class DroidsafeHelper(object):
 
 droidsafeHelper = DroidsafeHelper()
 #droidsafeHelper.RenameAPKWithSize(APK_ROOT_FOLDER)
-droidsafeHelper.ListSmaliAndAPKSize(APK_ROOT_FOLDER)		
+droidsafeHelper.ListJarAndAPKSize(APK_ROOT_FOLDER)		
