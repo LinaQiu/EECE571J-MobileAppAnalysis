@@ -1,6 +1,7 @@
 import os, csv
 
-APK_ROOT_FOLDER = "/Users/lina/Documents/EECE571J/Project/FDroid"
+#APK_ROOT_FOLDER = "/Users/lina/Documents/EECE571J/Project/APK_Julia"
+APK_ROOT_FOLDER = "/Volumes/SeagateBackupPlusDrive/Master/EECE571J/googleplay-toplist_20150130"
 MB = 1000000
 KB = 1000
 
@@ -43,6 +44,10 @@ class DroidsafeHelper(object):
 	 		os.rename(apkInfo[1][0],apkInfo[1][1]+"_"+apkInfo[1][0])
 	 		os.chdir(APKFolderPath)
 
+	def RenameAPKWithSize(self, apkFilePath, originalAPKName, newAPKName):
+		os.chdir(apkFilePath)
+		print apkFilePath+"\n"+originalAPKName+"\n"+newAPKName
+		os.rename(originalAPKName, newAPKName)
 
 	def _total_size(self, source):
 		total_size = os.path.getsize(source)
@@ -69,7 +74,7 @@ class DroidsafeHelper(object):
 				continue
 			else:
 				#self.RenameAPKWithSize(reversedAPK)
-				reversedAPKSize = reversedAPK[:reversedAPK.index("_")]
+				#reversedAPKSize = reversedAPK[:reversedAPK.index("_")]
 				reversedAPKPath = APKFolderPath+"/"+reversedAPK
 				os.chdir(reversedAPKPath)
 				fileList = os.listdir(reversedAPKPath)
@@ -79,10 +84,16 @@ class DroidsafeHelper(object):
 						#apkName = item[item.index("_")+1:len(item)]
 						apkName=item
 						originalAPKSize = os.stat(item).st_size
+						apkSize = self.ConstructSizeStringFromBytes(originalAPKSize)
 					elif "dex2jar" in item:
 						originaldex2jarSize = self._total_size(reversedAPKPath+"/dex2jar")
 						dex2jarSize = self.ConstructSizeStringFromBytes(originaldex2jarSize)
-				self.apk_dex2jar_size_mapping.append([apkName,originalAPKSize,reversedAPKSize,originaldex2jarSize,dex2jarSize])
+				# In case some apks were renamed successfully, while others were not. And the script was ran for several times.
+				originalAPKNames = apkName.split(str(dex2jarSize+"_"))
+				originalAPKName=originalAPKNames[len(originalAPKNames)-1]
+				newAPKName = str(dex2jarSize)+"_"+newAPKName
+				self.RenameAPKWithSize(reversedAPKPath, apkName, newAPKName)
+				self.apk_dex2jar_size_mapping.append([apkName,originalAPKSize,apkSize,originaldex2jarSize,dex2jarSize])
 		self.WriteLogs(self.apk_dex2jar_size_mapping, APKFolderPath+"/apk_info.csv")
 
 droidsafeHelper = DroidsafeHelper()

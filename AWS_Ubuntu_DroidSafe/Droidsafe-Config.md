@@ -45,7 +45,7 @@
 
 -libpkgfile <file>                file containing library package prefixes (default: config-files/library_package_prefixes)
 
--limitcontextforcomplex           Limit context depth for classes that might blow up PTA (Limit context for complex classes & Related to Objective sensitive PTA analysis & PTA analysis need to be run successfully, in order to run the callfallbackmodeling, VA(value analysis), JSA injection; default: false)
+-limitcontextforcomplex           Limit context depth for classes that might blow up PTA (Limit context for complex classes & Related to Objective sensitive PTA analysis & PTA analysis need to be run successfully, in order to run the callfallbackmodeling, VA(value analysis), JSA injection; default: false) (/* if option limitcontextforcomplex then limit the context for this percent of the classes. Higher number will limit more context, be more scaleable but less precise.*/ private static final double PERCENTAGE_TO_LIMIT_COMPLEXITY = 0.5;)
 
 -limitcontextforgui               Limit context depth for some GUI objects PTA (in spark limit heap context for some GUI elements & objective sensitive PTA analysis, to limit the context depth calculated for GUI elements; default: fullContextForGUI=true)
 
