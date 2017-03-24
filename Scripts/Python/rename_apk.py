@@ -2,6 +2,7 @@ import os, csv
 
 #APK_ROOT_FOLDER = "/Users/lina/Documents/EECE571J/Project/APK_Julia"
 APK_ROOT_FOLDER = "/Volumes/SeagateBackupPlusDrive/Master/EECE571J/googleplay-toplist_20150130"
+FDROID_APK_ROOT_FOLDER = "/Volumes/SeagateBackupPlusDrive/Master/EECE571J/FDroid"
 MB = 1000000
 KB = 1000
 
@@ -79,6 +80,7 @@ class DroidsafeHelper(object):
 				os.chdir(reversedAPKPath)
 				fileList = os.listdir(reversedAPKPath)
 				for item in fileList:
+					print item
 					if ".apk" in item:
 						#Uncomment the following line if the apk file name is renamed previously with apk size at the beginning
 						#apkName = item[item.index("_")+1:len(item)]
@@ -89,13 +91,30 @@ class DroidsafeHelper(object):
 						originaldex2jarSize = self._total_size(reversedAPKPath+"/dex2jar")
 						dex2jarSize = self.ConstructSizeStringFromBytes(originaldex2jarSize)
 				# In case some apks were renamed successfully, while others were not. And the script was ran for several times.
-				originalAPKNames = apkName.split(str(dex2jarSize+"_"))
+				print "dex2jarSize: "
+				print dex2jarSize
+				if dex2jarSize is not None:
+					originalAPKNames = apkName.split(str(dex2jarSize+"_"))
+				else:
+					print "No jar file found: "+subdirectory+"/"+apkName
+					continue
 				originalAPKName=originalAPKNames[len(originalAPKNames)-1]
-				newAPKName = str(dex2jarSize)+"_"+newAPKName
+				newAPKName = str(dex2jarSize)+"_"+originalAPKName
 				self.RenameAPKWithSize(reversedAPKPath, apkName, newAPKName)
 				self.apk_dex2jar_size_mapping.append([apkName,originalAPKSize,apkSize,originaldex2jarSize,dex2jarSize])
 		self.WriteLogs(self.apk_dex2jar_size_mapping, APKFolderPath+"/apk_info.csv")
 
 droidsafeHelper = DroidsafeHelper()
 #droidsafeHelper.RenameAPKWithSize(APK_ROOT_FOLDER)
-droidsafeHelper.ListJarAndAPKSize(APK_ROOT_FOLDER)		
+#droidsafeHelper.ListJarAndAPKSize(APK_ROOT_FOLDER)		
+
+dirs=next(os.walk('/Volumes/SeagateBackupPlusDrive/Master/EECE571J/FDroid'))[1]
+counter=0
+for subdirectory in dirs:
+	droidsafeHelper.apk_dex2jar_size_mapping = []
+	subroot="/Volumes/SeagateBackupPlusDrive/Master/EECE571J/FDroid/"+subdirectory
+	droidsafeHelper.ListJarAndAPKSize(subroot)
+	counter+=1
+print counter
+print "Done."
+

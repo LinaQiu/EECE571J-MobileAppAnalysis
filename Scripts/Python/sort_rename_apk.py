@@ -91,7 +91,7 @@ class DroidsafeHelper(object):
 				# In case some apks were renamed successfully, while others were not. And the script was ran for several times.
 				originalAPKNames = apkName.split(str(dex2jarSize+"_"))
 				originalAPKName=originalAPKNames[len(originalAPKNames)-1]
-				newAPKName = str(dex2jarSize)+"_"+newAPKName
+				newAPKName = str(dex2jarSize)+"_"+originalAPKName
 				self.RenameAPKWithSize(reversedAPKPath, apkName, newAPKName)
 				self.apk_dex2jar_size_mapping.append([apkName,originalAPKSize,apkSize,originaldex2jarSize,dex2jarSize])
 		self.WriteLogs(self.apk_dex2jar_size_mapping, APKFolderPath+"/apk_info.csv")
