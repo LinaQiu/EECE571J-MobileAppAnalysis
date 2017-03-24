@@ -71,7 +71,7 @@
 
 -noptaresult                      Do not translate PTA result for eclipse plugin. (If has noptaresult, then set ptaresult=false. If ptaresults=true, then generate pta result for eclipse plugin; default(ptaresult): true)
 
--norcfg                           Do not organize results by triggering event.  Does not produce eclipse files. (spec.html) (If has nor cfg, then set createRCFG=false. By default, createRCFG=true.)
+-norcfg                           Do not organize results by triggering event.  Does not produce eclipse files. (spec.html) (If has no rcfg, then set createRCFG=false. By default, createRCFG=true.)
 
 -noreports                        Do not generate indicator reports. (If has foreparts, then set produceReports=false. If produceReports=true, then Produce indicator reports (the CollaspedCallGraph, AllEntryPointCallTree, IPCEntryPointCallTree, ICCEntryPointCallTree, ICCMap, UnresolvedICC, SensitiveSources, SourceCallTree, ObjectMethodOverrideContracts, CatchBlocks); default (produceReports): true)
 
