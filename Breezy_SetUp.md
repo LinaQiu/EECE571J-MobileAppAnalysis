@@ -19,7 +19,7 @@ ssh yingying@breezy.westgrid.ca
   `module avail`
 * Load module 
   `module load $module_name`
-
+* __*Need to load modules for every ssh session*__
 
 # 2. DROIDSAFE INSTALLATION [Manual](https://github.com/MIT-PAC/droidsafe-src/wiki/Getting-Started)
 ### 1. Dependencies
@@ -105,3 +105,35 @@ ant compile
 export JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8
 # then ant compile again
 ```
+
+
+# 3. FLOWDROID SETTING UP
+#### 1 Make a folder on your local for all files
+Here we use FlowDroid1.5ReleaseVersion, so name it like:
+`mkdir FlowDroid1.5ReleaseVersion`
+
+#### 2 Download all needed files from FlowDroid Github [Link](https://github.com/secure-software-engineering/soot-infoflow-android/wiki)
+Here we use the FlowDroid1.5ReleaseVersion.
+##### List of needed files:
+*6 Jar Files:*
+* axml-2.0.jar
+* slf4j-api-1.7.5.jar
+* slf4j-simple-1.7.5.jar
+* soot-infoflow-android.jar
+* soot-infoflow.jar
+* soot-trunk.jar
+*3 txt files:*
+* AndroidCallbacks.txt
+* EasyTaintWrapperSource.txt
+* SourcesAndSinks.txt
+
+#### 3 Scp all above files to Breezy Server
+```
+# first, make a folder on Breezy for FlowDroid
+mkdir ~/FlowDroid
+
+# then, scp your Flowdroid 1.5 release version folder from local to Breezy
+scp -r ~/Downloads/FlowDroid1.5ReleaseVersion yingying@breezy.westgrid.ca:~/FlowDroid/
+```
+Done.
+
