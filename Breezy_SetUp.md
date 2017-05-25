@@ -137,3 +137,35 @@ scp -r ~/Downloads/FlowDroid1.5ReleaseVersion yingying@breezy.westgrid.ca:~/Flow
 ```
 Done.
 
+
+
+# 4. IccTA SETTING UP
+### 1. Setting Up Dependencies
+#### 1.1 Mysql
+
+
+#### 1.2 install IccTA
+```
+mkdir ~/IccTA
+cd ~/IccTA
+git clone https://github.com/lilicoding/soot-infoflow-android-iccta
+```
+
+#### 1.3 config IC3/ EPIC
+
+
+
+#### 1.4 config IccTA release
+
+
+
+
+
+# 5. AmanDroid SETTING UP
+```
+mkdir ~/AmanDroid
+cd ~/AmanDroid
+git clone https://github.com/arguslab/Argus-SAF
+```
+Done 
+
