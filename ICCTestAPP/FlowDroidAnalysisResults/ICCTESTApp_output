@@ -1,0 +1,394 @@
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/Users/dora/FlowDroid-EECE571J/Tutorial/FlowDroid/soot-trunk.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/Users/dora/FlowDroid-EECE571J/Tutorial/FlowDroid/slf4j-simple-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[main] INFO soot.jimple.infoflow.taintWrappers.EasyTaintWrapper - Loaded wrapper entries for 70 classes and 11 exclusions.
+[main] INFO soot.jimple.infoflow.android.SetupApplication - ARSC file parsing took 0.060897043 seconds
+Warning: java.lang.invoke.LambdaMetafactory is a phantom class!
+Warning: java.lang.ref.Finalizer is a phantom class!
+[main] WARN soot.jimple.infoflow.entryPointCreators.AndroidEntryPointCreator - Cannot generate constructor for phantom class android.content.Intent
+[main] WARN soot.jimple.infoflow.entryPointCreators.AndroidEntryPointCreator - Cannot generate constructor for phantom class android.os.Bundle
+[main] INFO soot.jimple.infoflow.entryPointCreators.AndroidEntryPointCreator - Generated main method:
+    public static void dummyMainMethod(java.lang.String[])
+    {
+        java.lang.String[] $r0;
+        int $i0, $i1;
+        lina.ubc.inappcomponents.SendOutDeviceID $r1;
+        android.os.IBinder $r2;
+        lina.ubc.inappcomponents.MainActivity $r3;
+
+        $r0 := @parameter0: java.lang.String[];
+
+        $i0 = 0;
+
+     label1:
+        if $i0 == 0 goto label5;
+
+        $r1 = new lina.ubc.inappcomponents.SendOutDeviceID;
+
+        specialinvoke $r1.<lina.ubc.inappcomponents.SendOutDeviceID: void <init>()>();
+
+        virtualinvoke $r1.<lina.ubc.inappcomponents.SendOutDeviceID: void onCreate()>();
+
+     label2:
+        if $i0 == 1 goto label3;
+
+        $i1 = virtualinvoke $r1.<lina.ubc.inappcomponents.SendOutDeviceID: int onStartCommand(android.content.Intent,int,int)>(null, 0, 0);
+
+        if $i0 == 2 goto label2;
+
+     label3:
+        $r2 = virtualinvoke $r1.<lina.ubc.inappcomponents.SendOutDeviceID: android.os.IBinder onBind(android.content.Intent)>(null);
+
+     label4:
+        if $i0 == 4 goto label5;
+
+        if $i0 == 5 goto label4;
+
+     label5:
+        if $i0 == 6 goto label7;
+
+        $r3 = new lina.ubc.inappcomponents.MainActivity;
+
+        specialinvoke $r3.<lina.ubc.inappcomponents.MainActivity: void <init>()>();
+
+        if $i0 == 7 goto label7;
+
+        virtualinvoke $r3.<lina.ubc.inappcomponents.MainActivity: void onCreate(android.os.Bundle)>(null);
+
+     label6:
+        if $i0 == 10 goto label7;
+
+        if $i0 == 11 goto label6;
+
+     label7:
+        if $i0 == 13 goto label1;
+
+        return;
+    }
+
+[main] INFO soot.jimple.infoflow.android.callbacks.DefaultCallbackAnalyzer - Collecting callbacks in DEFAULT mode...
+[Call Graph] For information on where the call graph may be incomplete, use the verbose option to the cg phase.
+[Spark] Pointer Assignment Graph in 0.0 seconds.
+[Spark] Type masks in 0.0 seconds.
+[Spark] Pointer Graph simplified in 0.0 seconds.
+[Spark] Propagation in 0.1 seconds.
+[Spark] Solution found in 0.1 seconds.
+Callback analysis done.
+Warning: lina.ubc.inappcomponents.android.support.v7.internal.widget.NativeActionModeAwareLayout is a phantom class!
+Warning: android.view.android.support.v7.internal.widget.NativeActionModeAwareLayout is a phantom class!
+Warning: android.widget.android.support.v7.internal.widget.NativeActionModeAwareLayout is a phantom class!
+Warning: android.webkit.android.support.v7.internal.widget.NativeActionModeAwareLayout is a phantom class!
+Could not find layout class android.support.v7.internal.widget.NativeActionModeAwareLayout
+Found 0 layout controls in file res/layout-v11/abc_action_bar_decor.xml
+Could not find layout class android.support.v7.internal.widget.NativeActionModeAwareLayout
+Warning: FrameLayout is a phantom class!
+Warning: lina.ubc.inappcomponents.FrameLayout is a phantom class!
+Warning: android.view.FrameLayout is a phantom class!
+Found 1 layout controls in file res/layout-v11/abc_simple_decor.xml
+Warning: LinearLayout is a phantom class!
+Warning: lina.ubc.inappcomponents.LinearLayout is a phantom class!
+Warning: android.view.LinearLayout is a phantom class!
+Found 2 layout controls in file res/layout-v14/abc_activity_chooser_view.xml
+Found 3 layout controls in file res/layout/abc_action_bar_decor.xml
+Warning: lina.ubc.inappcomponents.android.support.v7.internal.widget.ActionBarContainer is a phantom class!
+Warning: android.view.android.support.v7.internal.widget.ActionBarContainer is a phantom class!
+Warning: android.widget.android.support.v7.internal.widget.ActionBarContainer is a phantom class!
+Warning: android.webkit.android.support.v7.internal.widget.ActionBarContainer is a phantom class!
+Could not find layout class android.support.v7.internal.widget.ActionBarContainer
+Warning: lina.ubc.inappcomponents.android.support.v7.internal.widget.ActionBarView is a phantom class!
+Warning: android.view.android.support.v7.internal.widget.ActionBarView is a phantom class!
+Warning: android.widget.android.support.v7.internal.widget.ActionBarView is a phantom class!
+Warning: android.webkit.android.support.v7.internal.widget.ActionBarView is a phantom class!
+Could not find layout class android.support.v7.internal.widget.ActionBarView
+Warning: lina.ubc.inappcomponents.android.support.v7.internal.widget.ActionBarContextView is a phantom class!
+Warning: android.view.android.support.v7.internal.widget.ActionBarContextView is a phantom class!
+Warning: android.widget.android.support.v7.internal.widget.ActionBarContextView is a phantom class!
+Warning: android.webkit.android.support.v7.internal.widget.ActionBarContextView is a phantom class!
+Could not find layout class android.support.v7.internal.widget.ActionBarContextView
+Could not find layout class android.support.v7.internal.widget.ActionBarContainer
+Found 4 layout controls in file res/layout/abc_action_bar_decor_include.xml
+Warning: lina.ubc.inappcomponents.android.support.v7.internal.widget.ActionBarOverlayLayout is a phantom class!
+Warning: android.view.android.support.v7.internal.widget.ActionBarOverlayLayout is a phantom class!
+Warning: android.widget.android.support.v7.internal.widget.ActionBarOverlayLayout is a phantom class!
+Warning: android.webkit.android.support.v7.internal.widget.ActionBarOverlayLayout is a phantom class!
+Could not find layout class android.support.v7.internal.widget.ActionBarOverlayLayout
+Could not find layout class android.support.v7.internal.widget.ActionBarContainer
+Could not find layout class android.support.v7.internal.widget.ActionBarView
+Could not find layout class android.support.v7.internal.widget.ActionBarContextView
+Warning: ImageView is a phantom class!
+Warning: lina.ubc.inappcomponents.ImageView is a phantom class!
+Warning: android.view.ImageView is a phantom class!
+Could not find layout class android.support.v7.internal.widget.ActionBarContainer
+Found 5 layout controls in file res/layout/abc_action_bar_decor_overlay.xml
+Warning: view is a phantom class!
+Warning: lina.ubc.inappcomponents.view is a phantom class!
+Warning: android.view.view is a phantom class!
+Warning: android.widget.view is a phantom class!
+Warning: android.webkit.view is a phantom class!
+Could not find layout class view
+Found 6 layout controls in file res/layout/abc_action_bar_home.xml
+Could not find layout class view
+Found 6 layout controls in file res/layout/abc_action_bar_tab.xml
+Warning: lina.ubc.inappcomponents.android.support.v7.internal.widget.LinearLayoutICS is a phantom class!
+Warning: android.view.android.support.v7.internal.widget.LinearLayoutICS is a phantom class!
+Warning: android.widget.android.support.v7.internal.widget.LinearLayoutICS is a phantom class!
+Warning: android.webkit.android.support.v7.internal.widget.LinearLayoutICS is a phantom class!
+Could not find layout class android.support.v7.internal.widget.LinearLayoutICS
+Found 6 layout controls in file res/layout/abc_action_bar_tabbar.xml
+Warning: TextView is a phantom class!
+Warning: lina.ubc.inappcomponents.TextView is a phantom class!
+Warning: android.view.TextView is a phantom class!
+Found 7 layout controls in file res/layout/abc_action_bar_title_item.xml
+Found 8 layout controls in file res/layout/abc_action_bar_view_list_nav_layout.xml
+Warning: lina.ubc.inappcomponents.android.support.v7.internal.view.menu.ActionMenuItemView is a phantom class!
+Warning: android.view.android.support.v7.internal.view.menu.ActionMenuItemView is a phantom class!
+Warning: android.widget.android.support.v7.internal.view.menu.ActionMenuItemView is a phantom class!
+Warning: android.webkit.android.support.v7.internal.view.menu.ActionMenuItemView is a phantom class!
+Could not find layout class android.support.v7.internal.view.menu.ActionMenuItemView
+Found 8 layout controls in file res/layout/abc_action_menu_item_layout.xml
+Warning: lina.ubc.inappcomponents.android.support.v7.internal.view.menu.ActionMenuView is a phantom class!
+Warning: android.view.android.support.v7.internal.view.menu.ActionMenuView is a phantom class!
+Warning: android.widget.android.support.v7.internal.view.menu.ActionMenuView is a phantom class!
+Warning: android.webkit.android.support.v7.internal.view.menu.ActionMenuView is a phantom class!
+Could not find layout class android.support.v7.internal.view.menu.ActionMenuView
+Found 8 layout controls in file res/layout/abc_action_menu_layout.xml
+Could not find layout class android.support.v7.internal.widget.ActionBarContextView
+Found 8 layout controls in file res/layout/abc_action_mode_bar.xml
+Found 9 layout controls in file res/layout/abc_action_mode_close_item.xml
+Could not find layout class android.support.v7.internal.widget.LinearLayoutICS
+Found 9 layout controls in file res/layout/abc_activity_chooser_view.xml
+Found 10 layout controls in file res/layout/abc_activity_chooser_view_include.xml
+Found 11 layout controls in file res/layout/abc_activity_chooser_view_list_item.xml
+Warning: lina.ubc.inappcomponents.android.support.v7.internal.view.menu.ExpandedMenuView is a phantom class!
+Warning: android.view.android.support.v7.internal.view.menu.ExpandedMenuView is a phantom class!
+Warning: android.widget.android.support.v7.internal.view.menu.ExpandedMenuView is a phantom class!
+Warning: android.webkit.android.support.v7.internal.view.menu.ExpandedMenuView is a phantom class!
+Could not find layout class android.support.v7.internal.view.menu.ExpandedMenuView
+Found 11 layout controls in file res/layout/abc_expanded_menu_layout.xml
+Warning: CheckBox is a phantom class!
+Warning: lina.ubc.inappcomponents.CheckBox is a phantom class!
+Warning: android.view.CheckBox is a phantom class!
+Found 12 layout controls in file res/layout/abc_list_menu_item_checkbox.xml
+Found 13 layout controls in file res/layout/abc_list_menu_item_icon.xml
+Warning: lina.ubc.inappcomponents.android.support.v7.internal.view.menu.ListMenuItemView is a phantom class!
+Warning: android.view.android.support.v7.internal.view.menu.ListMenuItemView is a phantom class!
+Warning: android.widget.android.support.v7.internal.view.menu.ListMenuItemView is a phantom class!
+Warning: android.webkit.android.support.v7.internal.view.menu.ListMenuItemView is a phantom class!
+Could not find layout class android.support.v7.internal.view.menu.ListMenuItemView
+Warning: RelativeLayout is a phantom class!
+Warning: lina.ubc.inappcomponents.RelativeLayout is a phantom class!
+Warning: android.view.RelativeLayout is a phantom class!
+Found 14 layout controls in file res/layout/abc_list_menu_item_layout.xml
+Warning: RadioButton is a phantom class!
+Warning: lina.ubc.inappcomponents.RadioButton is a phantom class!
+Warning: android.view.RadioButton is a phantom class!
+Found 15 layout controls in file res/layout/abc_list_menu_item_radio.xml
+Could not find layout class android.support.v7.internal.view.menu.ListMenuItemView
+Found 16 layout controls in file res/layout/abc_popup_menu_item_layout.xml
+Found 17 layout controls in file res/layout/abc_search_dropdown_item_icons_2line.xml
+Could not find layout class view
+Found 18 layout controls in file res/layout/abc_search_view.xml
+Found 19 layout controls in file res/layout/abc_simple_decor.xml
+Found 20 layout controls in file res/layout/activity_main.xml
+Found 21 layout controls in file res/layout/support_simple_spinner_dropdown_item.xml
+Warning: java.lang.invoke.LambdaMetafactory is a phantom class!
+Warning: java.lang.ref.Finalizer is a phantom class!
+[main] WARN soot.jimple.infoflow.entryPointCreators.AndroidEntryPointCreator - Cannot generate constructor for phantom class android.content.Intent
+[main] WARN soot.jimple.infoflow.entryPointCreators.AndroidEntryPointCreator - Cannot generate constructor for phantom class android.os.Bundle
+[main] INFO soot.jimple.infoflow.entryPointCreators.AndroidEntryPointCreator - Generated main method:
+    public static void dummyMainMethod(java.lang.String[])
+    {
+        java.lang.String[] $r0;
+        int $i0, $i1;
+        lina.ubc.inappcomponents.SendOutDeviceID $r1;
+        android.os.IBinder $r2;
+        lina.ubc.inappcomponents.MainActivity $r3;
+
+        $r0 := @parameter0: java.lang.String[];
+
+        $i0 = 0;
+
+     label1:
+        if $i0 == 0 goto label5;
+
+        $r1 = new lina.ubc.inappcomponents.SendOutDeviceID;
+
+        specialinvoke $r1.<lina.ubc.inappcomponents.SendOutDeviceID: void <init>()>();
+
+        virtualinvoke $r1.<lina.ubc.inappcomponents.SendOutDeviceID: void onCreate()>();
+
+     label2:
+        if $i0 == 1 goto label3;
+
+        $i1 = virtualinvoke $r1.<lina.ubc.inappcomponents.SendOutDeviceID: int onStartCommand(android.content.Intent,int,int)>(null, 0, 0);
+
+        if $i0 == 2 goto label2;
+
+     label3:
+        $r2 = virtualinvoke $r1.<lina.ubc.inappcomponents.SendOutDeviceID: android.os.IBinder onBind(android.content.Intent)>(null);
+
+     label4:
+        if $i0 == 4 goto label5;
+
+        if $i0 == 5 goto label4;
+
+     label5:
+        if $i0 == 6 goto label7;
+
+        $r3 = new lina.ubc.inappcomponents.MainActivity;
+
+        specialinvoke $r3.<lina.ubc.inappcomponents.MainActivity: void <init>()>();
+
+        if $i0 == 7 goto label7;
+
+        virtualinvoke $r3.<lina.ubc.inappcomponents.MainActivity: void onCreate(android.os.Bundle)>(null);
+
+     label6:
+        if $i0 == 10 goto label6;
+
+        if $i0 == 11 goto label7;
+
+        if $i0 == 12 goto label6;
+
+     label7:
+        if $i0 == 14 goto label1;
+
+        return;
+    }
+
+[Call Graph] For information on where the call graph may be incomplete, use the verbose option to the cg phase.
+[Spark] Pointer Assignment Graph in 0.0 seconds.
+[Spark] Type masks in 0.0 seconds.
+[Spark] Pointer Graph simplified in 0.0 seconds.
+[Spark] Propagation in 0.0 seconds.
+[Spark] Solution found in 0.0 seconds.
+Running incremental callback analysis for 2 components...
+Incremental callback analysis done.
+Found 3 callback methods for 2 components
+Found {res/layout/abc_list_menu_item_radio.xml=[2131492911 - android.widget.RadioButton], res/layout/abc_action_bar_view_list_nav_layout.xml=[-1 - android.widget.LinearLayout], res/layout/abc_action_bar_decor_include.xml=[2131492884 - android.widget.FrameLayout], res/layout/activity_main.xml=[2131492924 - android.widget.RelativeLayout, -1 - android.widget.TextView], res/layout/abc_popup_menu_item_layout.xml=[2131492910 - android.widget.TextView, -1 - android.widget.RelativeLayout, 2131492907 - android.widget.TextView], res/layout/abc_search_dropdown_item_icons_2line.xml=[2131492912 - android.widget.ImageView, 16908296 - android.widget.ImageView, 16908295 - android.widget.ImageView, 16908309 - android.widget.TextView, 16908308 - android.widget.TextView, -1 - android.widget.RelativeLayout], res/layout/abc_search_view.xml=[2131492916 - android.widget.LinearLayout, 2131492915 - android.widget.ImageView, 2131492917 - android.widget.ImageView, 2131492914 - android.widget.TextView, 2131492921 - android.widget.LinearLayout, 2131492922 - android.widget.ImageView, 2131492920 - android.widget.ImageView, 2131492913 - android.widget.LinearLayout, 2131492918 - android.widget.LinearLayout, 2131492923 - android.widget.ImageView], res/layout-v14/abc_activity_chooser_view.xml=[2131492901 - android.widget.LinearLayout], res/layout/abc_activity_chooser_view_list_item.xml=[2131492905 - android.widget.LinearLayout, 2131492906 - android.widget.ImageView, -1 - android.widget.LinearLayout, 2131492907 - android.widget.TextView], res/layout/abc_activity_chooser_view_include.xml=[2131492902 - android.widget.FrameLayout, 2131492904 - android.widget.FrameLayout, 2131492903 - android.widget.ImageView], res/layout/abc_action_bar_decor_overlay.xml=[-1 - android.widget.ImageView, 2131492896 - android.widget.LinearLayout, 2131492884 - android.widget.FrameLayout], res/layout/abc_action_bar_home.xml=[2131492887 - android.widget.ImageView, 2131492897 - android.widget.ImageView], res/layout/abc_action_mode_close_item.xml=[-1 - android.widget.ImageView, 2131492900 - android.widget.LinearLayout], res/layout/abc_list_menu_item_layout.xml=[2131492910 - android.widget.TextView, -1 - android.widget.RelativeLayout, 2131492907 - android.widget.TextView], res/layout/abc_action_bar_title_item.xml=[2131492899 - android.widget.TextView, 2131492898 - android.widget.TextView, -1 - android.widget.LinearLayout, 2131492897 - android.widget.ImageView], res/layout/abc_list_menu_item_checkbox.xml=[2131492909 - android.widget.CheckBox], res/layout-v11/abc_simple_decor.xml=[2131492884 - android.widget.FrameLayout], res/layout/abc_action_bar_decor.xml=[-1 - android.widget.LinearLayout], res/layout/abc_simple_decor.xml=[2131492884 - android.widget.FrameLayout, 2131492890 - android.widget.LinearLayout], res/layout/support_simple_spinner_dropdown_item.xml=[16908308 - android.widget.TextView], res/layout/abc_list_menu_item_icon.xml=[2131492906 - android.widget.ImageView]} layout controls
+Entry point calculation done.
+Created a SourceSinkManager with 90 sources, 133 sinks, and 3 callback methods.
+Running data flow analysis...
+Running data flow analysis on ICCTestAPP.apk with 90 sources and 133 sinks...
+Starting infoflow computation...
+[main] INFO soot.jimple.infoflow.Infoflow - Resetting Soot...
+Warning: java.lang.invoke.LambdaMetafactory is a phantom class!
+Warning: java.lang.ref.Finalizer is a phantom class!
+[main] INFO soot.jimple.infoflow.Infoflow - Basic class loading done.
+[main] WARN soot.jimple.infoflow.entryPointCreators.AndroidEntryPointCreator - Cannot generate constructor for phantom class android.content.Intent
+[main] WARN soot.jimple.infoflow.entryPointCreators.AndroidEntryPointCreator - Cannot generate constructor for phantom class android.os.Bundle
+[main] INFO soot.jimple.infoflow.entryPointCreators.AndroidEntryPointCreator - Generated main method:
+    public static void dummyMainMethod(java.lang.String[])
+    {
+        java.lang.String[] $r0;
+        int $i0, $i1;
+        lina.ubc.inappcomponents.SendOutDeviceID $r1;
+        android.os.IBinder $r2;
+        lina.ubc.inappcomponents.MainActivity $r3;
+
+        $r0 := @parameter0: java.lang.String[];
+
+        $i0 = 0;
+
+     label1:
+        if $i0 == 0 goto label5;
+
+        $r1 = new lina.ubc.inappcomponents.SendOutDeviceID;
+
+        specialinvoke $r1.<lina.ubc.inappcomponents.SendOutDeviceID: void <init>()>();
+
+        virtualinvoke $r1.<lina.ubc.inappcomponents.SendOutDeviceID: void onCreate()>();
+
+     label2:
+        if $i0 == 1 goto label3;
+
+        $i1 = virtualinvoke $r1.<lina.ubc.inappcomponents.SendOutDeviceID: int onStartCommand(android.content.Intent,int,int)>(null, 0, 0);
+
+        if $i0 == 2 goto label2;
+
+     label3:
+        $r2 = virtualinvoke $r1.<lina.ubc.inappcomponents.SendOutDeviceID: android.os.IBinder onBind(android.content.Intent)>(null);
+
+     label4:
+        if $i0 == 4 goto label5;
+
+        if $i0 == 5 goto label4;
+
+     label5:
+        if $i0 == 6 goto label7;
+
+        $r3 = new lina.ubc.inappcomponents.MainActivity;
+
+        specialinvoke $r3.<lina.ubc.inappcomponents.MainActivity: void <init>()>();
+
+        if $i0 == 7 goto label7;
+
+        virtualinvoke $r3.<lina.ubc.inappcomponents.MainActivity: void onCreate(android.os.Bundle)>(null);
+
+     label6:
+        if $i0 == 10 goto label6;
+
+        if $i0 == 11 goto label7;
+
+        if $i0 == 12 goto label6;
+
+     label7:
+        if $i0 == 14 goto label1;
+
+        return;
+    }
+
+[Call Graph] For information on where the call graph may be incomplete, use the verbose option to the cg phase.
+[Spark] Pointer Assignment Graph in 0.0 seconds.
+[Spark] Type masks in 0.0 seconds.
+[Spark] Pointer Graph simplified in 0.0 seconds.
+[Spark] Propagation in 0.0 seconds.
+[Spark] Solution found in 0.0 seconds.
+[main] INFO soot.jimple.infoflow.Infoflow - Callgraph construction took 0.080788258 seconds
+[main] INFO soot.jimple.infoflow.codeOptimization.InterproceduralConstantValuePropagator - Removing side-effect free methods is disabled
+[main] INFO soot.jimple.infoflow.Infoflow - Dead code elimination took 0.029459964 seconds
+[main] INFO soot.jimple.infoflow.Infoflow - Callgraph has 22 edges
+[main] INFO soot.jimple.infoflow.Infoflow - Starting Taint Analysis
+[main] INFO soot.jimple.infoflow.data.FlowDroidMemoryManager - Initializing FlowDroid memory manager...
+[main] INFO soot.jimple.infoflow.android.InfoflowAndroidConfiguration - Implicit flow tracking is NOT enabled
+[main] INFO soot.jimple.infoflow.android.InfoflowAndroidConfiguration - Exceptional flow tracking is enabled
+[main] INFO soot.jimple.infoflow.android.InfoflowAndroidConfiguration - Running with a maximum access path length of 5
+[main] INFO soot.jimple.infoflow.android.InfoflowAndroidConfiguration - Using path-agnostic result collection
+[main] INFO soot.jimple.infoflow.android.InfoflowAndroidConfiguration - Recursive access path shortening is enabled
+[main] INFO soot.jimple.infoflow.android.InfoflowAndroidConfiguration - Taint analysis enabled: true
+[main] INFO soot.jimple.infoflow.Infoflow - Looking for sources and sinks...
+[main] INFO soot.jimple.infoflow.Infoflow - Source lookup done, found 6 sources and 1 sinks.
+[main] INFO soot.jimple.infoflow.Infoflow - Taint wrapper hits: 0
+[main] INFO soot.jimple.infoflow.Infoflow - Taint wrapper misses: 0
+[main] INFO soot.jimple.infoflow.Infoflow - IFDS problem with 69 forward and 5 backward edges solved, processing 1 results...
+[main] INFO soot.jimple.infoflow.data.pathBuilders.ContextSensitivePathBuilder - Context-sensitive path reconstructor started
+[main] INFO soot.jimple.infoflow.data.pathBuilders.ContextSensitivePathBuilder - Obtainted 1 connections between null sources and sinks
+[main] INFO soot.jimple.infoflow.Infoflow - The sink staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("Leakage", $r2) in method <lina.ubc.inappcomponents.SendOutDeviceID: int onStartCommand(android.content.Intent,int,int)> was called with values from the following sources:
+[main] INFO soot.jimple.infoflow.Infoflow - - $r1 := @parameter0: android.content.Intent in method <lina.ubc.inappcomponents.SendOutDeviceID: int onStartCommand(android.content.Intent,int,int)>
+[main] INFO soot.jimple.infoflow.Infoflow - 	on Path: 
+[main] INFO soot.jimple.infoflow.Infoflow - 	 -> <lina.ubc.inappcomponents.SendOutDeviceID: int onStartCommand(android.content.Intent,int,int)>
+[main] INFO soot.jimple.infoflow.Infoflow - 		 -> $r1 := @parameter0: android.content.Intent
+[main] INFO soot.jimple.infoflow.Infoflow - 	 -> <lina.ubc.inappcomponents.SendOutDeviceID: int onStartCommand(android.content.Intent,int,int)>
+[main] INFO soot.jimple.infoflow.Infoflow - 		 -> $r2 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("DEVICE_ID")
+[main] INFO soot.jimple.infoflow.Infoflow - 	 -> <lina.ubc.inappcomponents.SendOutDeviceID: int onStartCommand(android.content.Intent,int,int)>
+[main] INFO soot.jimple.infoflow.Infoflow - 		 -> $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2)
+[main] INFO soot.jimple.infoflow.Infoflow - 	 -> <lina.ubc.inappcomponents.SendOutDeviceID: int onStartCommand(android.content.Intent,int,int)>
+[main] INFO soot.jimple.infoflow.Infoflow - 		 -> $r2 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>()
+[main] INFO soot.jimple.infoflow.Infoflow - 	 -> <lina.ubc.inappcomponents.SendOutDeviceID: int onStartCommand(android.content.Intent,int,int)>
+[main] INFO soot.jimple.infoflow.Infoflow - 		 -> staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("Leakage", $r2)
+Found a flow to sink staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("Leakage", $r2), from the following sources:
+	- $r1 := @parameter0: android.content.Intent (in <lina.ubc.inappcomponents.SendOutDeviceID: int onStartCommand(android.content.Intent,int,int)>)
+		on Path [$r1 := @parameter0: android.content.Intent, $r2 = virtualinvoke $r1.<android.content.Intent: java.lang.String getStringExtra(java.lang.String)>("DEVICE_ID"), $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r2), $r2 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>(), staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("Leakage", $r2)]
+Maximum memory consumption: 110.081552 MB
+Analysis has run for 10.862907867 seconds
+Collected sources:
+	$r1 := @parameter0: android.content.Intent
+	$r1 := @parameter0: android.content.Intent
+	$r6 = virtualinvoke $r5.<android.telephony.TelephonyManager: java.lang.String getDeviceId()>()
+	$i0 := @parameter1: int
+	$r1 := @parameter0: android.os.Bundle
+	$i1 := @parameter2: int
+Collected sinks:
+	staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("Leakage", $r2)
