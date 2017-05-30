@@ -1,5 +1,6 @@
 library(ggplot2)
 library(plyr)
+library(grid)    # To use function unit() while adjusting the plot margine using ggplot
 
 # Read info.
 GoogleApkInfo <- read.csv("/Users/lina/Documents/EECE571J/Project/GoogleApkFDRunningInfo.csv", header = TRUE)
@@ -7,10 +8,11 @@ GoogleApkInfo <- read.csv("/Users/lina/Documents/EECE571J/Project/GoogleApkFDRun
 # Exclude those apps that we did not run analyze on.
 FD_AnalyzedGoogleApk=subset(GoogleApkInfo, GoogleApkInfo$analysisResults.FD.!="Did not run")
 DS_AnalyzedGoogleApk=subset(GoogleApkInfo, GoogleApkInfo$analysisResults.DS.!="Did not run")
-
+#FD_AnalyzedGoogleApk=GoogleApkInfo
+#DS_AnalyzedGoogleApk=GoogleApkInfo
 ## Draw bar plot for FlowDroid
 FD_scalability_bar <- ggplot(FD_AnalyzedGoogleApk, aes(x=app, y=dex2jarSizeInByte))+
-	geom_bar(stat = "identity", binwidth=1, aes(fill=analysisResults.FD., order=desc(dex2jarSizeInByte)))+
+	geom_bar(stat = "identity", binwidth=1, aes(order=desc(dex2jarSizeInByte)))+
 	theme(axis.text.x=element_blank(),axis.ticks.x=element_blank(),axis.text.y=element_blank())
 print(FD_scalability_bar)
 
@@ -23,6 +25,9 @@ FD_scalability_dot <- ggplot(FD_AnalyzedGoogleApk, aes(x=app, y=dex2jarSizeInByt
 	theme(axis.text=element_text(size=22),axis.title=element_text(size=24,face="bold"), 
 				legend.text=element_text(size=20), legend.title=element_text(size = 20, face = "bold"),
 				title=element_text(size = 24, face = "bold"))+
+	theme(axis.title.x=element_text(vjust=-3)) +
+	theme(axis.title.y=element_text(vjust=3))+
+	theme(plot.margin = unit(c(2,2,2,2), "cm"))+
 	ggtitle("Scalability running results (FlowDroid)")
 print(FD_scalability_dot)
 
@@ -35,6 +40,9 @@ DS_scalability_dot <- ggplot(DS_AnalyzedGoogleApk, aes(x=app, y=dex2jarSizeInByt
 	theme(axis.text=element_text(size=22),axis.title=element_text(size=24,face="bold"), 
 				legend.text=element_text(size=20), legend.title=element_text(size = 20, face = "bold"),
 				title=element_text(size = 24, face = "bold"))+
+	theme(axis.title.x=element_text(vjust=-3)) +
+	theme(axis.title.y=element_text(vjust=3))+
+	theme(plot.margin = unit(c(2,2,2,2), "cm"))+
 	ggtitle("Scalability running results (DroidSafe)")
 print(DS_scalability_dot)
 
