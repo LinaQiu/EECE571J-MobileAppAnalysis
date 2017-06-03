@@ -142,7 +142,20 @@ Done.
 # 4. IccTA SETTING UP
 ### 1. Setting Up Dependencies
 #### 1.1 Mysql
+##### Mysql dependences: [ref](https://dev.mysql.com/doc/refman/5.7/en/source-installation.html)
+* cmake: [download](https://cmake.org/download/)
+```
+# transfer the tool binary
+scp -r ~/Downloads/cmake-3.8.2.tar yingying@breezy.westgrid.ca:~/tools
+# extract tar
+tar -xf cmake-3.8.2.tar  -C ~/tools/
+cd ~/tools/cmake-3.8.2
 
+# install cmake
+./bootstrap && make && make install
+## failed due to admin privilege issue 
+# cannot create some folders .. 
+```
 
 #### 1.2 install IccTA
 ```
