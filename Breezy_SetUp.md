@@ -21,6 +21,35 @@ ssh yingying@breezy.westgrid.ca
   `module load $module_name`
 * __*Need to load modules for every ssh session*__
 
+
+#### 4. Running jobs 
+* [Running Jobs](https://www.westgrid.ca/support/running_jobs)
+* [Breezy Quickstart Guide](https://www.westgrid.ca/support/quickstart/breezy) 
+* command like: 
+```
+qsub -l nodes=1:ppn=8,mem=64gb,walltime=72:00:00 mpi_diffuse.pbs
+
+# or specifying resources we need in the .pbs script 
+
+#PBS -l nodes=4:ppn=8,mem=64gb,walltime=72:00:00 
+
+# then, run the script
+qsub mpi_diffuse.pbs
+```
+* Breezy Specific requirements:
+> The maximum walltime limit for Breezy jobs is 3 days.
+
+> For a single user, the maximum number of jobs in the system at a time is 1000.
+
+> Since Breezy is intended for applications requiring large amounts of memory, one will often be expected to specify a TORQUE mem parameter on the qsub command line (or in #PBS directives in the batch job script). Although the memory per node is nominally 256 GB, there is not quite that much available. Do not specify more than 250 GB for the mem or pmem resource requests or your job will get stuck in input queue waiting for memory that will never be available.
+
+> Another intended use for Breezy is for multi-threaded single-node applications. For such cases, use a resource request of the form -l nodes=1:ppn=24,mem=250gb, where ppn, the processors per node, is the number of cores required and the memory needed is specified with the mem parameter. Since Breezy compute nodes have 24 cores, that is maximum number you can specify for ppn. You can use smaller values for ppn and mem as appropriate for your calculation. However, if you are using less than 24 cores, it is important to limit the number of threads used by your application to the number of cores requested, so as not to interfere with other users' jobs, which may be assigned to the same node. Often this can be accomplished by setting the OMP_NUM_THREADS variable. See the example script in the OpenMP section of Running Jobs page for an example.
+
+> Please do not use the ncpus or procs parameters when requesting processors on Breezy. In the rare cases in which multiple nodes are used for a single job, use the -l nodes=n:ppn=24 format to request multiple nodes, where n is the number required.
+
+* sample scripts: 
+  [pbs_sample.pbs](https://github.com/LinaQiu/EECE571J-MobileAppAnalysis/blob/master/pbs_sample.pbs)
+
 # 2. DROIDSAFE INSTALLATION [Manual](https://github.com/MIT-PAC/droidsafe-src/wiki/Getting-Started)
 ### 1. Dependencies
 #### 1.1 Git
