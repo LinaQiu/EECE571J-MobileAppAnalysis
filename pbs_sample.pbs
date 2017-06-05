@@ -1,0 +1,41 @@
+#!/bin/bash
+
+
+#PBS -S /bin/bash
+
+#PBS -l nodes=1:ppn=16
+#PBS -l mem=64gb
+#PBS -N DS_DB_IccB
+#PBS -l walltime=10:00:00
+
+#PBS -j oe
+#PBS -e OUTPUT_DS_DB_IB
+
+#PBS -M dora93wang@gmail.com
+#PBS -m bea
+
+
+cd $PBS_O_WORKDIR
+
+# JOBINFO=diffuse.${PBS_JOBID}
+echo "Starting run at: `date`" 
+echo "Current working directory is `pwd`"
+
+echo "--------------------------------"
+
+echo "now start analysing DroidBench apps with DroidSafe : `date`"
+
+./DS_DroidBench.sh > LOG_DS_DroidBench 2>&1
+
+echo " finishing analysing DroidBench app with DroidSafe : `date`"
+
+echo "--------------------------------"
+echo "now start analysing IccBench apps wirh DroidSafe: `date`"
+
+./DS_IccBench.sh > LOG_DS_IccBench 2>&1
+
+echo " finishing analysing IccBench app with DroidSafe : `date`"
+
+echo "finished analysing all applications required by DroidSafe at : `date`"
+
+
