@@ -174,17 +174,35 @@ Done.
 ##### Mysql dependences: [ref](https://dev.mysql.com/doc/refman/5.7/en/source-installation.html)
 * cmake: [download](https://cmake.org/download/)
 ```
-# transfer the tool binary
-scp -r ~/Downloads/cmake-3.8.2.tar yingying@breezy.westgrid.ca:~/tools
-# extract tar
-tar -xf cmake-3.8.2.tar  -C ~/tools/
-cd ~/tools/cmake-3.8.2
-
-# install cmake
-./bootstrap && make && make install
-## failed due to admin privilege issue 
-# cannot create some folders .. 
+module load cmake
 ```
+* boost
+```
+module load boost
+```
+##### install Mysql from source: [REF](https://dev.mysql.com/doc/refman/5.7/en/installing-development-tree.html)
+* git clone 
+```
+git clone https://github.com/mysql/mysql-server.git
+
+```
+* create a folder for mysql installation
+```
+mkdir -p /home/yingying/tools/mysql-5.7-personalBuilt
+```
+* configure via cmake
+```
+cd mysql-server
+cmake -DCMAKE_INSTALL_PREFIX=/home/yingying/tools/mysql-5.7-personalBuilt -DDOWNLOAD_BOOST=1 -DWITH_BOOST=/home/yingying/tools/
+
+```
+* make and make install
+```
+make 
+make install DESTDIR="/home/yingying/tools/mysql-5.7-personalBuilt"
+# met error here, need to solve later
+```
+
 
 #### 1.2 install IccTA
 ```
