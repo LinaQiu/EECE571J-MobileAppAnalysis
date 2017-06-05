@@ -43,7 +43,7 @@ class FormatSourcesSinks(object):
 		paraSigs=(methodSignature[indexOfLeftBracket+1:indexOfRightBracket]).split(",")
 		numOfPara=len(paraSigs)
 		paraFinalSig=""
-		if numOfPara>1:
+		if numOfPara>=1:
 			for i in xrange(0,numOfPara):
 				paraFinalSig+=self.FormatTypeToSignature(paraSigs[i])
 

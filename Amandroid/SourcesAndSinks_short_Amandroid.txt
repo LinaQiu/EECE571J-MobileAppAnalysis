@@ -1,26 +1,26 @@
-Landroid/location/Location;.getLatitude:()D SENSITIVE_INFO -> _SOURCE_
-Landroid/location/Location;.getLongitude:()D SENSITIVE_INFO -> _SOURCE_
-Landroid/telephony/TelephonyManager;.getDeviceId:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Landroid/telephony/TelephonyManager;.getSubscriberId:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Landroid/telephony/TelephonyManager;.getSimSerialNumber:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Landroid/telephony/TelephonyManager;.getLine1Number:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Ljava/net/URLConnection;.getOutputStream:()Ljava/io/OutputStream; SENSITIVE_INFO -> _SOURCE_
-Ljava/net/URLConnection;.getInputStream:()Ljava/io/InputStream; SENSITIVE_INFO -> _SOURCE_
-Lorg/apache/http/HttpResponse;.getEntity:()Lorg/apache/http/HttpEntity; SENSITIVE_INFO -> _SOURCE_
-Lorg/apache/http/util/EntityUtils;.toString:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Landroid/os/Bundle;.getBooleanArray:()[Z SENSITIVE_INFO -> _SOURCE_
-Landroid/os/Bundle;.getChar:()C SENSITIVE_INFO -> _SOURCE_
+Landroid/location/Location;.getLatitude:(L;)D SENSITIVE_INFO -> _SOURCE_
+Landroid/location/Location;.getLongitude:(L;)D SENSITIVE_INFO -> _SOURCE_
+Landroid/telephony/TelephonyManager;.getDeviceId:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/telephony/TelephonyManager;.getSubscriberId:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/telephony/TelephonyManager;.getSimSerialNumber:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/telephony/TelephonyManager;.getLine1Number:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Ljava/net/URLConnection;.getOutputStream:(L;)Ljava/io/OutputStream; SENSITIVE_INFO -> _SOURCE_
+Ljava/net/URLConnection;.getInputStream:(L;)Ljava/io/InputStream; SENSITIVE_INFO -> _SOURCE_
+Lorg/apache/http/HttpResponse;.getEntity:(L;)Lorg/apache/http/HttpEntity; SENSITIVE_INFO -> _SOURCE_
+Lorg/apache/http/util/EntityUtils;.toString:(Lorg/apache/http/HttpEntity;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/os/Bundle;.getBooleanArray:(Ljava/lang/String;)[Z SENSITIVE_INFO -> _SOURCE_
+Landroid/os/Bundle;.getChar:(Ljava/lang/String;)C SENSITIVE_INFO -> _SOURCE_
 Landroid/os/Bundle;.getChar:(Ljava/lang/String;C)C SENSITIVE_INFO -> _SOURCE_
-Landroid/os/Bundle;.getCharArray:()[C SENSITIVE_INFO -> _SOURCE_
-Landroid/os/Bundle;.getCharSequenceArrayList:()Ljava/util/ArrayList; SENSITIVE_INFO -> _SOURCE_
-Landroid/os/Bundle;.getClassLoader:()Ljava/lang/ClassLoader; SENSITIVE_INFO -> _SOURCE_
-Landroid/os/Bundle;.getDoubleArray:()[D SENSITIVE_INFO -> _SOURCE_
-Landroid/os/Bundle;.getFloatArray:()[F SENSITIVE_INFO -> _SOURCE_
-Landroid/os/Bundle;.getIntegerArrayList:()Ljava/util/ArrayList; SENSITIVE_INFO -> _SOURCE_
-Landroid/os/Bundle;.getLongArray:()[J SENSITIVE_INFO -> _SOURCE_
-Landroid/os/Bundle;.getShort:()S SENSITIVE_INFO -> _SOURCE_
+Landroid/os/Bundle;.getCharArray:(Ljava/lang/String;)[C SENSITIVE_INFO -> _SOURCE_
+Landroid/os/Bundle;.getCharSequenceArrayList:(Ljava/lang/String;)Ljava/util/ArrayList; SENSITIVE_INFO -> _SOURCE_
+Landroid/os/Bundle;.getClassLoader:(L;)Ljava/lang/ClassLoader; SENSITIVE_INFO -> _SOURCE_
+Landroid/os/Bundle;.getDoubleArray:(Ljava/lang/String;)[D SENSITIVE_INFO -> _SOURCE_
+Landroid/os/Bundle;.getFloatArray:(Ljava/lang/String;)[F SENSITIVE_INFO -> _SOURCE_
+Landroid/os/Bundle;.getIntegerArrayList:(Ljava/lang/String;)Ljava/util/ArrayList; SENSITIVE_INFO -> _SOURCE_
+Landroid/os/Bundle;.getLongArray:(Ljava/lang/String;)[J SENSITIVE_INFO -> _SOURCE_
+Landroid/os/Bundle;.getShort:(Ljava/lang/String;)S SENSITIVE_INFO -> _SOURCE_
 Landroid/os/Bundle;.getShort:(Ljava/lang/String;S)S SENSITIVE_INFO -> _SOURCE_
-Landroid/os/Bundle;.getShortArray:()[S SENSITIVE_INFO -> _SOURCE_
+Landroid/os/Bundle;.getShortArray:(Ljava/lang/String;)[S SENSITIVE_INFO -> _SOURCE_
 Landroid/os/Bundle;.putBooleanArray:(Ljava/lang/String;[Z)V -> _SINK_
 Landroid/os/Bundle;.putChar:(Ljava/lang/String;C)V -> _SINK_
 Landroid/os/Bundle;.putCharArray:(Ljava/lang/String;[C)V -> _SINK_
@@ -35,8 +35,8 @@ Landroid/os/Bundle;.putShortArray:(Ljava/lang/String;[S)V -> _SINK_
 Landroid/media/AudioRecord;.read:([SII)I SENSITIVE_INFO -> _SOURCE_
 Landroid/media/AudioRecord;.read:([BII)I SENSITIVE_INFO -> _SOURCE_
 Landroid/media/AudioRecord;.read:(Ljava/nio/ByteBuffer;I)I SENSITIVE_INFO -> _SOURCE_
-Landroid/content/pm/PackageManager;.getInstalledApplications:()Ljava/util/List; SENSITIVE_INFO -> _SOURCE_
-Landroid/content/pm/PackageManager;.getInstalledPackages:()Ljava/util/List; SENSITIVE_INFO -> _SOURCE_
+Landroid/content/pm/PackageManager;.getInstalledApplications:(I)Ljava/util/List; SENSITIVE_INFO -> _SOURCE_
+Landroid/content/pm/PackageManager;.getInstalledPackages:(I)Ljava/util/List; SENSITIVE_INFO -> _SOURCE_
 Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;)I -> _SINK_
 Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I -> _SINK_
 Landroid/util/Log;.e:(Ljava/lang/String;Ljava/lang/String;)I -> _SINK_
@@ -50,23 +50,23 @@ Landroid/util/Log;.w:(Ljava/lang/String;Ljava/lang/String;)I -> _SINK_
 Landroid/util/Log;.w:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I -> _SINK_
 Landroid/util/Log;.wtf:(Ljava/lang/String;Ljava/lang/String;)I -> _SINK_
 Landroid/util/Log;.wtf:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I -> _SINK_
-Ljava/io/OutputStream;.write:()V -> _SINK_
-Ljava/io/FileOutputStream;.write:()V -> _SINK_
+Ljava/io/OutputStream;.write:([B)V -> _SINK_
+Ljava/io/FileOutputStream;.write:([B)V -> _SINK_
 Ljava/io/FileOutputStream;.write:([BII)V -> _SINK_
-Ljava/io/FileOutputStream;.write:()V -> _SINK_
-Ljava/io/Writer;.write:()V -> _SINK_
-Ljava/io/Writer;.write:()V -> _SINK_
-Ljava/io/Writer;.append:()Ljava/io/Writer; -> _SINK_
-Ljava/io/OutputStreamWriter;.append:()Ljava/io/Writer; -> _SINK_
+Ljava/io/FileOutputStream;.write:(I)V -> _SINK_
+Ljava/io/Writer;.write:([C)V -> _SINK_
+Ljava/io/Writer;.write:(Ljava/lang/String;)V -> _SINK_
+Ljava/io/Writer;.append:(Ljava/lang/CharSequence;)Ljava/io/Writer; -> _SINK_
+Ljava/io/OutputStreamWriter;.append:(Ljava/lang/CharSequence;)Ljava/io/Writer; -> _SINK_
 Ljava/net/URLConnection;.setRequestProperty:(Ljava/lang/String;Ljava/lang/String;)V -> _SINK_
-Landroid/content/Context;.sendBroadcast:()V -> _SINK_
+Landroid/content/Context;.sendBroadcast:(Landroid/content/Intent;)V -> _SINK_
 Landroid/content/Context;.sendBroadcast:(Landroid/content/Intent;Ljava/lang/String;)V -> _SINK_
 Landroid/content/Context;.sendOrderedBroadcast:(Landroid/content/Intent;Ljava/lang/String;)V -> _SINK_
 Landroid/content/ContextWrapper;.sendOrderedBroadcast:(Landroid/content/Intent;Ljava/lang/String;)V -> _SINK_
 Landroid/telephony/SmsManager;.sendTextMessage:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V -> _SINK_
 Landroid/telephony/SmsManager;.sendDataMessage:(Ljava/lang/String;Ljava/lang/String;S[BLandroid/app/PendingIntent;Landroid/app/PendingIntent;)V -> _SINK_
 Landroid/telephony/SmsManager;.sendMultipartTextMessage:(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V -> _SINK_
-Landroid/os/Handler;.sendMessage:()Z -> _SINK_
+Landroid/os/Handler;.sendMessage:(Landroid/os/Message;)Z -> _SINK_
 Landroid/content/SharedPreferences$Editor;.putBoolean:(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor; -> _SINK_
 Landroid/content/SharedPreferences$Editor;.putInt:(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor; -> _SINK_
 Landroid/content/SharedPreferences$Editor;.putLong:(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor; -> _SINK_
@@ -75,36 +75,36 @@ Landroid/content/SharedPreferences$Editor;.putBoolean:(Ljava/lang/String;Z)Landr
 Landroid/content/SharedPreferences$Editor;.putInt:(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor; -> _SINK_
 Landroid/content/SharedPreferences$Editor;.putLong:(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor; -> _SINK_
 Landroid/content/SharedPreferences$Editor;.putString:(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor; -> _SINK_
-Landroid/bluetooth/BluetoothAdapter;.getAddress:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Landroid/net/wifi/WifiInfo;.getMacAddress:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Ljava/util/Locale;.getCountry:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Landroid/net/wifi/WifiInfo;.getSSID:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Landroid/telephony/gsm/GsmCellLocation;.getCid:()I SENSITIVE_INFO -> _SOURCE_
-Landroid/telephony/gsm/GsmCellLocation;.getLac:()I SENSITIVE_INFO -> _SOURCE_
-Landroid/location/Location;.getLongitude:()D SENSITIVE_INFO -> _SOURCE_
-Landroid/location/Location;.getLatitude:()D SENSITIVE_INFO -> _SOURCE_
-Landroid/accounts/AccountManager;.getAccounts:()[Landroid/accounts/Account; SENSITIVE_INFO -> _SOURCE_
-Ljava/util/Calendar;.getTimeZone:()Ljava/util/TimeZone; SENSITIVE_INFO -> _SOURCE_
-Lorg/apache/http/impl/client/DefaultHttpClient;.execute:()Lorg/apache/http/HttpResponse; -> _SINK_
-Lorg/apache/http/client/HttpClient;.execute:()Lorg/apache/http/HttpResponse; -> _SINK_
-Landroid/content/Context;.startActivity:()V -> _SINK_
-Landroid/content/ContextWrapper;.startActivity:()V -> _SINK_
-Landroid/content/Context;.startActivities:()V -> _SINK_
-Landroid/content/Context;.startService:()Landroid/content/ComponentName; -> _SINK_
-Landroid/content/Context;.sendBroadcast:()V -> _SINK_
+Landroid/bluetooth/BluetoothAdapter;.getAddress:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/net/wifi/WifiInfo;.getMacAddress:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Ljava/util/Locale;.getCountry:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/net/wifi/WifiInfo;.getSSID:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/telephony/gsm/GsmCellLocation;.getCid:(L;)I SENSITIVE_INFO -> _SOURCE_
+Landroid/telephony/gsm/GsmCellLocation;.getLac:(L;)I SENSITIVE_INFO -> _SOURCE_
+Landroid/location/Location;.getLongitude:(L;)D SENSITIVE_INFO -> _SOURCE_
+Landroid/location/Location;.getLatitude:(L;)D SENSITIVE_INFO -> _SOURCE_
+Landroid/accounts/AccountManager;.getAccounts:(L;)[Landroid/accounts/Account; SENSITIVE_INFO -> _SOURCE_
+Ljava/util/Calendar;.getTimeZone:(L;)Ljava/util/TimeZone; SENSITIVE_INFO -> _SOURCE_
+Lorg/apache/http/impl/client/DefaultHttpClient;.execute:(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse; -> _SINK_
+Lorg/apache/http/client/HttpClient;.execute:(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse; -> _SINK_
+Landroid/content/Context;.startActivity:(Landroid/content/Intent;)V -> _SINK_
+Landroid/content/ContextWrapper;.startActivity:(Landroid/content/Intent;)V -> _SINK_
+Landroid/content/Context;.startActivities:([Landroid/content/Intent;)V -> _SINK_
+Landroid/content/Context;.startService:(Landroid/content/Intent;)Landroid/content/ComponentName; -> _SINK_
+Landroid/content/Context;.sendBroadcast:(Landroid/content/Intent;)V -> _SINK_
 Landroid/content/Context;.sendBroadcast:(Landroid/content/Intent;Ljava/lang/String;)V -> _SINK_
 Landroid/app/Activity;.setResult:(ILandroid/content/Intent;)V -> _SINK_
-Landroid/app/Activity;.startActivity:()V -> _SINK_
-Landroid/app/Activity;.startActivities:()V -> _SINK_
+Landroid/app/Activity;.startActivity:(Landroid/content/Intent;)V -> _SINK_
+Landroid/app/Activity;.startActivities:([Landroid/content/Intent;)V -> _SINK_
 Landroid/app/Activity;.startActivityForResult:(Landroid/content/Intent;I)V -> _SINK_
 Landroid/app/Activity;.startActivityFromChild:(Landroid/app/Activity;Landroid/content/Intent;I)V -> _SINK_
-Landroid/app/Activity;.startService:()Landroid/content/ComponentName; -> _SINK_
-Landroid/app/Activity;.sendBroadcast:()V -> _SINK_
+Landroid/app/Activity;.startService:(Landroid/content/Intent;)Landroid/content/ComponentName; -> _SINK_
+Landroid/app/Activity;.sendBroadcast:(Landroid/content/Intent;)V -> _SINK_
 Landroid/app/Activity;.sendBroadcast:(Landroid/content/Intent;Ljava/lang/String;)V -> _SINK_
 Landroid/app/Activity;.sendOrderedBroadcast:(Landroid/content/Intent;Ljava/lang/String;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V -> _SINK_
 Landroid/app/Activity;.sendOrderedBroadcast:(Landroid/content/Intent;Ljava/lang/String;)V -> _SINK_
-Landroid/app/Activity;.sendStickyBroadcast:()V -> _SINK_
+Landroid/app/Activity;.sendStickyBroadcast:(Landroid/content/Intent;)V -> _SINK_
 Landroid/app/Activity;.sendStickyOrderedBroadcast:(Landroid/content/Intent;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V -> _SINK_
 Landroid/content/ContentResolver;.insert:(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri; -> _SINK_
 Landroid/content/ContentResolver;.update:(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I -> _SINK_
-Ljava/lang/ProcessBuilder;.start:()Ljava/lang/Process; -> _SINK_
+Ljava/lang/ProcessBuilder;.start:(L;)Ljava/lang/Process; -> _SINK_
