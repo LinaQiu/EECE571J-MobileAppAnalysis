@@ -70,7 +70,8 @@ class FormatSourcesSinks(object):
 			"long": "J",
 			"short": "S",
 			"boolean": "Z",
-			"void": "V"
+			"void": "V",
+			"":""
 		}
 		paraDim, Type=self.CalArrayDimension(Type)
 		paraSig=""

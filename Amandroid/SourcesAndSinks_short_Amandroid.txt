@@ -1,19 +1,19 @@
-Landroid/location/Location;.getLatitude:(L;)D SENSITIVE_INFO -> _SOURCE_
-Landroid/location/Location;.getLongitude:(L;)D SENSITIVE_INFO -> _SOURCE_
-Landroid/telephony/TelephonyManager;.getDeviceId:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Landroid/telephony/TelephonyManager;.getSubscriberId:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Landroid/telephony/TelephonyManager;.getSimSerialNumber:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Landroid/telephony/TelephonyManager;.getLine1Number:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Ljava/net/URLConnection;.getOutputStream:(L;)Ljava/io/OutputStream; SENSITIVE_INFO -> _SOURCE_
-Ljava/net/URLConnection;.getInputStream:(L;)Ljava/io/InputStream; SENSITIVE_INFO -> _SOURCE_
-Lorg/apache/http/HttpResponse;.getEntity:(L;)Lorg/apache/http/HttpEntity; SENSITIVE_INFO -> _SOURCE_
+Landroid/location/Location;.getLatitude:()D SENSITIVE_INFO -> _SOURCE_
+Landroid/location/Location;.getLongitude:()D SENSITIVE_INFO -> _SOURCE_
+Landroid/telephony/TelephonyManager;.getDeviceId:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/telephony/TelephonyManager;.getSubscriberId:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/telephony/TelephonyManager;.getSimSerialNumber:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/telephony/TelephonyManager;.getLine1Number:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Ljava/net/URLConnection;.getOutputStream:()Ljava/io/OutputStream; SENSITIVE_INFO -> _SOURCE_
+Ljava/net/URLConnection;.getInputStream:()Ljava/io/InputStream; SENSITIVE_INFO -> _SOURCE_
+Lorg/apache/http/HttpResponse;.getEntity:()Lorg/apache/http/HttpEntity; SENSITIVE_INFO -> _SOURCE_
 Lorg/apache/http/util/EntityUtils;.toString:(Lorg/apache/http/HttpEntity;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
 Landroid/os/Bundle;.getBooleanArray:(Ljava/lang/String;)[Z SENSITIVE_INFO -> _SOURCE_
 Landroid/os/Bundle;.getChar:(Ljava/lang/String;)C SENSITIVE_INFO -> _SOURCE_
 Landroid/os/Bundle;.getChar:(Ljava/lang/String;C)C SENSITIVE_INFO -> _SOURCE_
 Landroid/os/Bundle;.getCharArray:(Ljava/lang/String;)[C SENSITIVE_INFO -> _SOURCE_
 Landroid/os/Bundle;.getCharSequenceArrayList:(Ljava/lang/String;)Ljava/util/ArrayList; SENSITIVE_INFO -> _SOURCE_
-Landroid/os/Bundle;.getClassLoader:(L;)Ljava/lang/ClassLoader; SENSITIVE_INFO -> _SOURCE_
+Landroid/os/Bundle;.getClassLoader:()Ljava/lang/ClassLoader; SENSITIVE_INFO -> _SOURCE_
 Landroid/os/Bundle;.getDoubleArray:(Ljava/lang/String;)[D SENSITIVE_INFO -> _SOURCE_
 Landroid/os/Bundle;.getFloatArray:(Ljava/lang/String;)[F SENSITIVE_INFO -> _SOURCE_
 Landroid/os/Bundle;.getIntegerArrayList:(Ljava/lang/String;)Ljava/util/ArrayList; SENSITIVE_INFO -> _SOURCE_
@@ -75,16 +75,16 @@ Landroid/content/SharedPreferences$Editor;.putBoolean:(Ljava/lang/String;Z)Landr
 Landroid/content/SharedPreferences$Editor;.putInt:(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor; -> _SINK_
 Landroid/content/SharedPreferences$Editor;.putLong:(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor; -> _SINK_
 Landroid/content/SharedPreferences$Editor;.putString:(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor; -> _SINK_
-Landroid/bluetooth/BluetoothAdapter;.getAddress:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Landroid/net/wifi/WifiInfo;.getMacAddress:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Ljava/util/Locale;.getCountry:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Landroid/net/wifi/WifiInfo;.getSSID:(L;)Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
-Landroid/telephony/gsm/GsmCellLocation;.getCid:(L;)I SENSITIVE_INFO -> _SOURCE_
-Landroid/telephony/gsm/GsmCellLocation;.getLac:(L;)I SENSITIVE_INFO -> _SOURCE_
-Landroid/location/Location;.getLongitude:(L;)D SENSITIVE_INFO -> _SOURCE_
-Landroid/location/Location;.getLatitude:(L;)D SENSITIVE_INFO -> _SOURCE_
-Landroid/accounts/AccountManager;.getAccounts:(L;)[Landroid/accounts/Account; SENSITIVE_INFO -> _SOURCE_
-Ljava/util/Calendar;.getTimeZone:(L;)Ljava/util/TimeZone; SENSITIVE_INFO -> _SOURCE_
+Landroid/bluetooth/BluetoothAdapter;.getAddress:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/net/wifi/WifiInfo;.getMacAddress:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Ljava/util/Locale;.getCountry:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/net/wifi/WifiInfo;.getSSID:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/telephony/gsm/GsmCellLocation;.getCid:()I SENSITIVE_INFO -> _SOURCE_
+Landroid/telephony/gsm/GsmCellLocation;.getLac:()I SENSITIVE_INFO -> _SOURCE_
+Landroid/location/Location;.getLongitude:()D SENSITIVE_INFO -> _SOURCE_
+Landroid/location/Location;.getLatitude:()D SENSITIVE_INFO -> _SOURCE_
+Landroid/accounts/AccountManager;.getAccounts:()[Landroid/accounts/Account; SENSITIVE_INFO -> _SOURCE_
+Ljava/util/Calendar;.getTimeZone:()Ljava/util/TimeZone; SENSITIVE_INFO -> _SOURCE_
 Lorg/apache/http/impl/client/DefaultHttpClient;.execute:(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse; -> _SINK_
 Lorg/apache/http/client/HttpClient;.execute:(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse; -> _SINK_
 Landroid/content/Context;.startActivity:(Landroid/content/Intent;)V -> _SINK_
@@ -107,4 +107,4 @@ Landroid/app/Activity;.sendStickyBroadcast:(Landroid/content/Intent;)V -> _SINK_
 Landroid/app/Activity;.sendStickyOrderedBroadcast:(Landroid/content/Intent;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V -> _SINK_
 Landroid/content/ContentResolver;.insert:(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri; -> _SINK_
 Landroid/content/ContentResolver;.update:(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I -> _SINK_
-Ljava/lang/ProcessBuilder;.start:(L;)Ljava/lang/Process; -> _SINK_
+Ljava/lang/ProcessBuilder;.start:()Ljava/lang/Process; -> _SINK_
