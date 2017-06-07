@@ -23,6 +23,11 @@ ssh yingying@breezy.westgrid.ca
 
 
 #### 4. Running jobs 
+* remember to load modules in .pbs script before running tasks we need 
+necessary module is `java`
+```
+module load java
+```
 * [Running Jobs](https://www.westgrid.ca/support/running_jobs)
 * [Breezy Quickstart Guide](https://www.westgrid.ca/support/quickstart/breezy) 
 * command like: 
