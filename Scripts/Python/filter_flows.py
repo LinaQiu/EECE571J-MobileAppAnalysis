@@ -1,10 +1,14 @@
 ## This is a script used to filter out all flows that we care about for DroidSafe.
 import os
 
-ROOT_PATH="/Volumes/SeagateBackupPlusDrive/Master/EECE571J/FDroid_results"
-DROIDSAFE_RESULTS="/FDroid-DroidSafe-Results"
-#DROIDSAFE_FILTERED_RESULTS="/FDroid-DroidSafe-Filtered"
-SOURCES_SINKS_LIST="SourcesAndSinks_Intersect.txt"
+# ROOT_PATH="/Volumes/SeagateBackupPlusDrive/Master/EECE571J/FDroid_results"
+# DROIDSAFE_RESULTS="/FDroid-DroidSafe-Results"
+# DROIDSAFE_FILTERED_RESULTS="/FDroid-DroidSafe-Filtered"
+# SOURCES_SINKS_LIST="SourcesAndSinks_Intersect.txt"
+
+ROOT_PATH="/Volumes/LinaQiuHD/Master/EECE571J/Results/DroidBench/DroidSafe"
+DROIDSAFE_RESULTS="/APK_Droidbench"
+SOURCES_SINKS_LIST="SourcesAndSinks_Benchmarks.txt"
 
 class FilterFlows(object):
 	"""docstring for FilterFlows"""
@@ -97,6 +101,8 @@ class FilterFlows(object):
 			filteredFlows=[]
 			infoFlowFilePath=ROOT_PATH+DROIDSAFE_RESULTS+"/"+subfolder+"/droidsafe-gen/info-flow-results.txt"
 			outfilePath=ROOT_PATH+DROIDSAFE_RESULTS+"/"+subfolder+"/droidsafe-gen/info-flow-filtered-results.txt"
+			if not os.path.exists(infoFlowFilePath):
+				continue
 			with open(infoFlowFilePath) as infile:
 				for line in infile:
 					if "Entry Point:" in line or "Sources:" in line or "Lines" in line:

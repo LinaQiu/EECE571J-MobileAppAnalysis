@@ -108,11 +108,11 @@ droidsafeHelper = DroidsafeHelper()
 #droidsafeHelper.RenameAPKWithSize(APK_ROOT_FOLDER)
 #droidsafeHelper.ListJarAndAPKSize(APK_ROOT_FOLDER)		
 
-dirs=next(os.walk('/Volumes/SeagateBackupPlusDrive/Master/EECE571J/FDroid'))[1]
+dirs=next(os.walk('/Volumes/LinaQiuHD/Master/EECE571J/Apk/FDroid-new'))[1]
 counter=0
 for subdirectory in dirs:
 	droidsafeHelper.apk_dex2jar_size_mapping = []
-	subroot="/Volumes/SeagateBackupPlusDrive/Master/EECE571J/FDroid/"+subdirectory
+	subroot="/Volumes/LinaQiuHD/Master/EECE571J/Apk/FDroid-new/"+subdirectory
 	droidsafeHelper.ListJarAndAPKSize(subroot)
 	counter+=1
 print counter

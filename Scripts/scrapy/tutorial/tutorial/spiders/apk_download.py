@@ -1,8 +1,10 @@
 import scrapy 
-from scrapy.contrib.pipeline.files import FilesPipeline, FSFilesStore
+# from scrapy.contrib.pipeline.files import FilesPipeline, FSFilesStore
+import scrapy.pipelines
+import scrapy.pipelines.files
 import os
 
-FDroid_DOWNLOAD_PATH="/Volumes/SeagateBackupPlusDrive/Master/EECE571J/FDroid"
+FDroid_DOWNLOAD_PATH="/Volumes/LinaQiuHD/Master/EECE571J/Apk/FDroid-new"
 ROOT_URL="https://f-droid.org/repository/browse/?page_id=0&fdcategory="
 
 class APKDownloader(scrapy.Spider):
@@ -70,8 +72,12 @@ class APKDownloader(scrapy.Spider):
 				apk_urls.append(url)	
 		# According to FDroid website, urls to download a specific apk is ordered by time, which follows the rule that the very first url links to the latest apk.
 		# Because DroidSafe is not updated, there is sdk version limitations. Therefore, we will download the apk from the last url, which is the earliest apk.
-		print "download apk url: "+apk_urls[len(apk_urls)-1]
-		yield scrapy.Request(apk_urls[len(apk_urls)-1], meta={'subcategory':subcategory}, callback=self.save_apk)
+		# print "download apk url: "+apk_urls[len(apk_urls)-1]
+		# yield scrapy.Request(apk_urls[len(apk_urls)-1], meta={'subcategory':subcategory}, callback=self.save_apk)
+		
+		# We decided to download the latest apk files now. 
+		print "download apk url: "+apk_urls[0]
+		yield scrapy.Request(apk_urls[0], meta={'subcategory':subcategory}, callback=self.save_apk)
 
 	def save_apk(self, response):
 		subcategory=response.meta['subcategory']
