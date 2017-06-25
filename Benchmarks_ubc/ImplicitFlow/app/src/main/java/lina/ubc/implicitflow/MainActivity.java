@@ -28,6 +28,7 @@ public class MainActivity extends Activity {
         int oldvalue = Settings.System.getInt(mContext.getContentResolver(), Settings.System.AIRPLANE_MODE_ON, 0);
         int newvalue = oldvalue == 1 ? 0 : 1;
 
+        // Case 1: source --> Settings.System.getInt(); sink --> sendBroadcast()
         Intent intent = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
         intent.putExtra("state", newvalue);
         mContext.sendBroadcast(intent);
