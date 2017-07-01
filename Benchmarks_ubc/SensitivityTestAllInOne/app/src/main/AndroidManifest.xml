@@ -31,8 +31,6 @@
             android:name=".FlowSensitivity"
             android:label="@string/title_activity_flow_sensitivity">
         </activity>
-        <activity android:name=".AmandroidSourceSinkTest">
-        </activity>
         <activity android:name=".PathSensitivity">
         </activity>
     </application>

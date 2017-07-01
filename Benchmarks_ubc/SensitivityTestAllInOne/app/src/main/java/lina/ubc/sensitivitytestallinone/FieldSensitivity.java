@@ -8,7 +8,13 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 
 /**
- * Should only have one leak flow, from 23 --> 26
+ * This is a test case used to check whether the tool is field sensitive. If the tool is field sensitive, it should only report one flow as mentioned below.
+ * Expected sources: getDeviceId()
+ * Expected sinks: line 32: Log.e(java.lang.String, java.lang.String) && line 33: Log.e(java.lang.String, java.lang.String)
+ * Number of expected leaks: 1
+ * Flow Path:
+ * line 29: a.info1 = tpm.getDeviceId() -->
+ * line 32: Log.e("FieldSensitivity1", a.info1) --> leak
  */
 public class FieldSensitivity extends Activity {
 
@@ -20,11 +26,11 @@ public class FieldSensitivity extends Activity {
         A a = new A();
 
         TelephonyManager tpm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        a.info1 = tpm.getDeviceId();    // Source
+        a.info1 = tpm.getDeviceId();    // Source: <android.telephony.TelephonyManager: java.lang.String getDeviceId()> -> _SOURCE_
         a.info2 = "123";
 
-        Log.e("FieldSensitivity1", a.info1);    // Sink, Leak
-        Log.e("FieldSensitivity2", a.info2);    // Sink, No leak
+        Log.e("FieldSensitivity1", a.info1);    // Sink1, Leak: <android.util.Log: int e(java.lang.String,java.lang.String)> -> _SINK_
+        Log.e("FieldSensitivity2", a.info2);    // Sink2, No leak: <android.util.Log: int e(java.lang.String,java.lang.String)> -> _SINK_
 
         Intent contextIntent = new Intent(this, ContextSensitivity.class);
         startActivity(contextIntent);

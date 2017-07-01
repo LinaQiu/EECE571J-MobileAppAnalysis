@@ -6,8 +6,12 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 
 /**
+ * This is a test case used to check whether the tool is path sensitive. If the tool is path sensitive, it should not report flow in this case.
  * If path insensitive, the tool would report a flow from the source to the sink.
  * If path sensitive, the tool would be able to record the conditions for each flow, then there would not be a flow from the source to the sink in this case.
+ * Expected sources: getDeviceId()
+ * Expected sinks: Log.e(java.lang.String, java.lang.String)
+ * Number of expected leaks: 0
  */
 public class PathSensitivity extends Activity {
 
@@ -22,11 +26,11 @@ public class PathSensitivity extends Activity {
         double condition = Math.random();
 
         if (condition>0) {
-            deviceId=tpm.getDeviceId();     // source
+            deviceId=tpm.getDeviceId();     // Source: <android.telephony.TelephonyManager: java.lang.String getDeviceId()> -> _SOURCE_
         }
 
         if (!(condition<0)){
-            Log.i("PathSensitivity", deviceId);     // sink
+            Log.e("PathSensitivity", deviceId);     // Sink: <android.util.Log: int e(java.lang.String,java.lang.String)> -> _SINK_
         }
     }
 }
