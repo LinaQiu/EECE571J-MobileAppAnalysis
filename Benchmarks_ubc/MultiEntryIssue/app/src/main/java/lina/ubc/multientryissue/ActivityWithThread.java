@@ -12,8 +12,9 @@ import android.util.Log;
  * Expected Sinks: Log.i(java.lang.String, java.lang.String)
  * Number of expected flows: 1
  * Path:
- * line 26: new MyThread(tpm.getDeviceId()).start -->
- * line 39: Log.i("ActivityWithThread", deviceId) --> leak
+ * line 27: new MyThread(tpm.getDeviceId()).start -->
+ * line 35: this.deviceId = deviceId -->
+ * line 40: Log.i("ActivityWithThread", deviceId) --> leak
  */
 public class ActivityWithThread extends Activity {
 

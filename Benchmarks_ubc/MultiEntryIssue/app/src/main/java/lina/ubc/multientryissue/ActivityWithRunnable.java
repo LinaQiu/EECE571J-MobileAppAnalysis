@@ -14,8 +14,9 @@ import java.util.concurrent.Executors;
  * Expected Sinks: Log.d(java.lang.String, java.lang.String)
  * Number of expected flows: 1
  * Path:
- * line 28: Executors.newCachedThreadPool().execute(new MyRunnable(tpm.getDeviceId())) -->
- * line 40: Log.d("ActivityWithRunnable", deviceId) --> leak
+ * line 29: Executors.newCachedThreadPool().execute(new MyRunnable(tpm.getDeviceId())) -->
+ * line 36: this.deviceId = deviceId;
+ * line 41: Log.d("ActivityWithRunnable", deviceId) --> leak
  */
 public class ActivityWithRunnable extends Activity {
 
