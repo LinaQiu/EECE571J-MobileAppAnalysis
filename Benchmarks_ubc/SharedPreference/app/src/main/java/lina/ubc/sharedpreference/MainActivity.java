@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         TelephonyManager tpm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
-        String deviceId = tpm.getDeviceId();
+        String deviceId = tpm.getDeviceId();    // Source: <android.telephony.TelephonyManager: java.lang.String getDeviceId()> -> _SOURCE_
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
@@ -36,6 +36,6 @@ public class MainActivity extends Activity {
         editor.apply();
 
         String deviceIdFromSharedPreference = settings.getString("deviceId", "");
-        Log.d("SharedPreference", deviceIdFromSharedPreference);
+        Log.d("SharedPreference", deviceIdFromSharedPreference);    // Sink: <android.util.Log: int d(java.lang.String,java.lang.String)> -> _SINK_
     }
 }
