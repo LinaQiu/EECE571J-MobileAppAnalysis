@@ -19,6 +19,6 @@ public class Receiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.i("Receiver", intent.getAction());
+        Log.i("Receiver", intent.getAction());  // Sink2: <android.util.Log: int i(java.lang.String,java.lang.String)> -> _SINK_
     }
 }

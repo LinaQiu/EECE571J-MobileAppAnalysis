@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         Intent intent = new Intent(Intent.ACTION_SEND);
-        sendBroadcast(intent);
+        sendBroadcast(intent);  // Sink1: <android.content.ContextWrapper: void sendBroadcast(android.content.Intent)> -> _SINK_
     }
 
 }
