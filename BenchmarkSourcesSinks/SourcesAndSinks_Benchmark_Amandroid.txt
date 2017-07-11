@@ -1,0 +1,21 @@
+Landroid/telephony/TelephonyManager;.getDeviceId:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/telephony/TelephonyManager;.getSimSerialNumber:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/location/Location;.getLatitude:()D SENSITIVE_INFO -> _SOURCE_
+Landroid/location/Location;.getLongitude:()D SENSITIVE_INFO -> _SOURCE_
+Landroid/telephony/TelephonyManager;.getSubscriberId:()Ljava/lang/String; SENSITIVE_INFO -> _SOURCE_
+Landroid/telephony/SmsManager;.sendTextMessage:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V -> _SINK_
+Landroid/util/Log;.i:(Ljava/lang/String;Ljava/lang/String;)I -> _SINK_
+Landroid/util/Log;.i:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I -> _SINK_
+Landroid/util/Log;.e:(Ljava/lang/String;Ljava/lang/String;)I -> _SINK_
+Landroid/util/Log;.e:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I -> _SINK_
+Landroid/util/Log;.v:(Ljava/lang/String;Ljava/lang/String;)I -> _SINK_
+Landroid/util/Log;.v:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I -> _SINK_
+Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;)I -> _SINK_
+Landroid/util/Log;.d:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I -> _SINK_
+Ljava/lang/ProcessBuilder;.start:()Ljava/lang/Process; -> _SINK_
+Landroid/app/Activity;.startActivityForResult:(Landroid/content/Intent;I)V -> _SINK_
+Landroid/app/Activity;.setResult:(ILandroid/content/Intent;)V -> _SINK_
+Landroid/app/Activity;.startActivity:(Landroid/content/Intent;)V -> _SINK_
+Ljava/net/URL;.openConnection:()Ljava/net/URLConnection; -> _SINK_
+Landroid/app/Activity;.sendBroadcast:(Landroid/content/Intent;)V -> _SINK_
+Landroid/content/ContextWrapper;.sendBroadcast:(Landroid/content/Intent;)V -> _SINK_
