@@ -23,8 +23,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         TelephonyManager tpm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
-        tpm.getDeviceId();      // Source:
-        Log.i("ContextTaint", "Telephony manager: "+tpm);
+        tpm.getDeviceId();      // Source: <android.telephony.TelephonyManager: java.lang.String getDeviceId()> -> _SOURCE_
+        Log.i("ContextTaint", "Telephony manager: "+tpm);   // Sink: <android.util.Log: int i(java.lang.String,java.lang.String)> -> _SINK_
 
     }
 
