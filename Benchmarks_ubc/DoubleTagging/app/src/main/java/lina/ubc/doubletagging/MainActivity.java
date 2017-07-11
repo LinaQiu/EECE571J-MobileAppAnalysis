@@ -1,4 +1,4 @@
-package lina.ubc.nestingsource;
+package lina.ubc.doubletagging;
 
 import android.app.Activity;
 import android.hardware.Camera;
