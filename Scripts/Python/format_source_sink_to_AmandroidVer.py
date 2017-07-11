@@ -6,6 +6,8 @@ AMANDROID_SOURCE_SINK_LONG_PATH="/Users/lina/Documents/EECE571J/Project/EECE571J
 AMANDROID_SOURCE_SINK_SHORT_PATH="/Users/lina/Documents/EECE571J/Project/EECE571J-MobileAppAnalysis/Amandroid/SourcesAndSinks_short_Amandroid.txt"
 BENCHMARK_SOURCE_SINK_PATH="/Users/lina/Documents/EECE571J/Project/EECE571J-MobileAppAnalysis/BenchmarkSourcesSinks/SourcesAndSinks_Benchmark.txt"
 AMANDROID_SOURCE_SINK_BENCHMARK_PATH="/Users/lina/Documents/EECE571J/Project/EECE571J-MobileAppAnalysis/BenchmarkSourcesSinks/SourcesAndSinks_Benchmark_Amandroid.txt"
+BENCHMARKS_UBC_PATH="/Users/lina/Documents/EECE571J/Project/EECE571J-MobileAppAnalysis/BenchmarkSourcesSinks/SourcesAndSinks_Benchmarks_ubc.txt"
+AMANDROID_BENCHMARKS_UBC_PATH="/Users/lina/Documents/EECE571J/Project/EECE571J-MobileAppAnalysis/BenchmarkSourcesSinks/SourcesAndSinks_Benchmarks_ubc_Amandroid.txt"
 
 class FormatSourcesSinks(object):
 	"""This class does the job to transfer all sources/sinks method from FlowDroid format to Amandroid format."""
@@ -113,4 +115,5 @@ class FormatSourcesSinks(object):
 fss=FormatSourcesSinks()
 # fss.Transformation(DS_SOURCE_SINK_PATH, AMANDROID_SOURCE_SINK_LONG_PATH)
 # fss.Transformation(INTERSECT_SOURCE_SINK_PATH, AMANDROID_SOURCE_SINK_SHORT_PATH)
-fss.Transformation(BENCHMARK_SOURCE_SINK_PATH, AMANDROID_SOURCE_SINK_BENCHMARK_PATH)
+# fss.Transformation(BENCHMARK_SOURCE_SINK_PATH, AMANDROID_SOURCE_SINK_BENCHMARK_PATH)
+fss.Transformation(BENCHMARKS_UBC_PATH, AMANDROID_BENCHMARKS_UBC_PATH)
