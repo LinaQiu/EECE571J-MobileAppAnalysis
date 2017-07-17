@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 /**
- * This is a test case used to explain the branching issue of FlowDroid and IccTA.
+ * This is a test case used to explain the branching issue of FlowDroid, IccTA and DroidSafe. Becasue Amandroid's mathmatical operation issue, this test case can't test the branching issue for Amandroid.
  * Expected source: getLatitude()
  * Expected sink: Log.i(java.lang.String, java.lang.String)
  * Number of expected leaks: 2
