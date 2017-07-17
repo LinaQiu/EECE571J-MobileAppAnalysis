@@ -1,6 +1,6 @@
 package lina.ubc.eventorderingtest;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -25,7 +25,7 @@ import android.util.Log;
  * line 37: Log.i("EventOrderingTest", deviceId) --> leaks
  *
  */
-public class ActivityWithFlow extends ActionBarActivity {
+public class ActivityWithFlow extends Activity {
 
     private static String deviceId = "";
 
