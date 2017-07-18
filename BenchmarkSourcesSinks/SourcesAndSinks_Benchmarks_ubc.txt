@@ -5,11 +5,12 @@
 <java.lang.Runtime: java.lang.Process exec(java.lang.String[])> -> _SINK_
 <android.util.Log: int e(java.lang.String,java.lang.String)> -> _SINK_
 <android.util.Log: int i(java.lang.String,java.lang.String)> -> _SINK_
+<android.util.Log: int d(java.lang.String,java.lang.String)> -> _SINK_
 <android.app.Activity: void setIntent(android.content.Intent)> -> _SINK_
-<android.telephony.TelephonyManager: java.lang.String getDeviceId()> -> _SOURCE_
 <android.provider.Settings$System: int getInt(android.content.ContentResolver,java.lang.String,int)> -> _SOURCE_
 <android.hardware.Camera: android.hardware.Camera$Parameters getParameters()> -> _SOURCE_
 <android.hardware.Camera$Parameters: java.util.List getSupportedPreviewSizes()> -> _SOURCE_
 <android.location.Location: double getLatitude()> -> _SOURCE_
 <java.lang.Runtime: java.lang.Process exec(java.lang.String[])> -> _SOURCE_
 <android.telephony.TelephonyManager: java.lang.String getSimSerialNumber()> -> _SOURCE_
+<android.telephony.TelephonyManager: java.lang.String getDeviceId()> -> _SOURCE_
