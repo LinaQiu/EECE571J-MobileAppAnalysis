@@ -39,18 +39,18 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         TelephonyManager tpm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
-        String deviceId = tpm.getDeviceId();
+        String deviceId = tpm.getDeviceId();    // Source: <android.telephony.TelephonyManager: java.lang.String getDeviceId()> -> _SOURCE_
 
         double deviceIdPlus1 = Double.parseDouble(deviceId)+1.0;
-        Log.d("MathematicalOperations1", "The value of deviceId plus 1.0: "+deviceIdPlus1);
+        Log.d("MathematicalOperations1", "The value of deviceId plus 1.0: "+deviceIdPlus1); // Sink1: <android.util.Log: int d(java.lang.String,java.lang.String)> -> _SINK_
 
         double deviceIdMinus1 = Double.parseDouble(deviceId)-1.0;
-        Log.d("MathematicalOperations2", "The value of deviceId minus 1.0: "+deviceIdMinus1);
+        Log.d("MathematicalOperations2", "The value of deviceId minus 1.0: "+deviceIdMinus1);   // Sink2: <android.util.Log: int d(java.lang.String,java.lang.String)> -> _SINK_
 
         double deviceIdMultiplyBy1 = Double.parseDouble(deviceId)*1.0;
-        Log.d("MathematicalOperations3", "The value of deviceId multiply by 1.0: "+deviceIdMultiplyBy1);
+        Log.d("MathematicalOperations3", "The value of deviceId multiply by 1.0: "+deviceIdMultiplyBy1);    // Sink3: <android.util.Log: int d(java.lang.String,java.lang.String)> -> _SINK_
 
         double deviceIdDividedBy1 = Double.parseDouble(deviceId)/1.0;
-        Log.d("MathematicalOperation4", "The value of deviceId divided by 1.0: "+deviceIdDividedBy1);
+        Log.d("MathematicalOperation4", "The value of deviceId divided by 1.0: "+deviceIdDividedBy1);   // Sink4: <android.util.Log: int d(java.lang.String,java.lang.String)> -> _SINK_
     }
 }
