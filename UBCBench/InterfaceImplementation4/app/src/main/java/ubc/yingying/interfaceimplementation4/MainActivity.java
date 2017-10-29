@@ -1,9 +1,7 @@
 package ubc.yingying.interfaceimplementation4;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.app.Activity;
-import android.telephony.SmsManager;
+import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -14,14 +12,14 @@ import android.util.Log;
  * This is an exact duplicate of the testcase DroidBench-GeneralJava-VirtualDispatch3.
  * The reason why we duplicate the testcase into UBCBench is for convenience to compare with Interfaceimplementation3.
  * Link for DroidBench-GeneralJava-VirtualDispatch3 is: [link](https://github.com/secure-software-engineering/DroidBench/blob/master/eclipse-project/GeneralJava/VirtualDispatch3/src/de/ecspride/MainActivity.java)
- * @expected_source: getDeviceId()
- * @expected_sink: sendTextMessage()
+ * @expected_source: Line 63: getDeviceId()
+ * @expected_sink: Line 39: Log.i(java.lang.String, java.lang.String)
  * @number_of_expected_leaks: 0
  * @flow_path: N/A
  */
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
        // MyInterface myif = createOtherImplementation();
 
         String data = myif.getString();
-        SmsManager sms = SmsManager.getDefault();
-        sms.sendTextMessage("no leak", null, data, null, null); // sink, no leak
+
+        Log.i("no leak", data); // sink, no leak
 
         MyInterface foo = createOtherImplementation();
         // MyInterface foo = createInterfaceImplementation();

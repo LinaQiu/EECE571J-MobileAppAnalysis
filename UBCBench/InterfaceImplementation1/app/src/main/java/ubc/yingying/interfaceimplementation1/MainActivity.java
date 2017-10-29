@@ -1,9 +1,7 @@
 package ubc.yingying.interfaceimplementation1;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.app.Activity;
-import android.telephony.SmsManager;
+import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -12,18 +10,18 @@ import android.util.Log;
  * @testcase_name Interfaceimplementation1
  * @description Test if the analysis tool could distinguish different implementations of an interface.
  * This is a testcase as an extension to the testcase DroidBench-GeneralJava-VirtualDispatch3.
- * @expected_source: getDeviceId()
- * @expected_sink: sendTextMessage(), Log.i()
+ * @expected_source: Line 60: getDeviceId()
+ * @expected_sink: Line 39 & 40: Log.i(java.lang.String, java.lang.String)
  * @number_of_expected_leaks: 1
  * @flow_path:
  * line 41 : test1.method(a) -->
  * line 60 : A.getString() -->
  * line 62 : mgr.getDeviceId() -->
- * line 41 : smsmanager.sendTextMessage() [sink]
+ * line 41 : Log.i("leak", test1.method(a)) --> leak
  */
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
         MyInterface a = new A();
         MyInterface b = new B();
 
-        SmsManager smsmanager = SmsManager.getDefault();
 
-        smsmanager.sendTextMessage("leak", null, test1.method(a), null, null); //sink, leak
+
+        Log.i("leak", test1.method(a)); //sink, leak
         Log.i("no leak", test2.method(b)); //sink, no leak
     }
 

@@ -1,15 +1,16 @@
 package ubc.yingying.serialization2;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
+import android.os.Environment;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.Serializable;
-import android.telephony.TelephonyManager;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import android.util.Log;
+import java.io.Serializable;
 
 // Serialization in java is a mechanism of writing the state of an object into a byte stream.
 
@@ -36,30 +37,36 @@ import android.util.Log;
 
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
+
+    String rootDir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        rootDir = Environment.getExternalStorageDirectory().getAbsolutePath();
+
         TelephonyManager mgr = (TelephonyManager) this.getSystemService(TELEPHONY_SERVICE);
         String imei = mgr.getDeviceId(); //source
         S s1 = new S(imei);
+
         try {
-            FileOutputStream fout = new FileOutputStream("file.txt");
+            FileOutputStream fout = new FileOutputStream(rootDir+"/file.txt");
             ObjectOutputStream out = new ObjectOutputStream(fout);
             out.writeObject(s1);
             out.flush();
-            System.out.println("success");
+            Log.i("state", "success");
 
-            ObjectInputStream in=new ObjectInputStream(new FileInputStream("f.txt"));
+            ObjectInputStream in=new ObjectInputStream(new FileInputStream(rootDir+"/f.txt"));
             S s2=(S)in.readObject();
             in.close();
 
-            Log.i("DroidBench", s2.toString()); //sink
+            Log.i("DroidBench", "test: "+s2.toString()); //sink
 
         } catch (Exception e) {
+            Log.d("exception", e.toString());
         }
     }
 

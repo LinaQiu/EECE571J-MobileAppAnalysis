@@ -1,9 +1,7 @@
 package ubc.yingying.interfaceimplementation3;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.app.Activity;
-import android.telephony.SmsManager;
+import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -14,21 +12,19 @@ import android.util.Log;
  * This is a testcase as an extension to the testcase DroidBench-GeneralJava-VirtualDispatch3.
  * In DroidBench-GeneralJava-VirtualDispatch3, it calls createInterfaceImplementation() in factoryTest();
  * Here, we call createOtherImplementation()
- * @expected_source: getDeviceId()
- * @expected_sink: sendTextMessage()
+ * @expected_source: Line 68: getDeviceId()
+ * @expected_sink: Line 44: Log.i(java.lang.String, java.lang.String)
  * @number_of_expected_leaks: 1
  * @flow_path:
- * line 34: onCreate() -->
+ * line 30: onCreate() -->
  * line 38: factoryTest() -->
- * line 55: createOtherImplementation() -->
- * line 56: A() -->
- * line 72: return mgr.getDeviceId() -->
- * line 46: data -->
- * line 48: sms.sendTextMessage("leak", null, data, null, null); [sink]
+ * line 51: createOtherImplementation() -->
+ * line 52: A() -->
+ * line 68: return mgr.getDeviceId() -->
+ * line 42: data -->
+ * line 44: Log.i("leak", data) --> leak
  */
-
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         MyInterface myif = createOtherImplementation();
 
         String data = myif.getString();
-        SmsManager sms = SmsManager.getDefault();
-        sms.sendTextMessage("leak", null, data, null, null); // sink, leak
+
+        Log.i("leak", data); // sink, leak
 
         //MyInterface foo = createOtherImplementation();
         MyInterface foo = createInterfaceImplementation();
