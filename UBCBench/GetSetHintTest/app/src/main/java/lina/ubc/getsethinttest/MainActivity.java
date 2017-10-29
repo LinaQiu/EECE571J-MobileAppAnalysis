@@ -12,8 +12,8 @@ import android.widget.EditText;
  * but also for other Android widgets. This is a supplementary test case for /Callbacks/Button5 from DroidBench
  * (https://github.com/secure-software-engineering/DroidBench/tree/master/eclipse-project/Callbacks/Button5).
  *
- * Expected Source: line : getDeviceId()
- * Expected Sink: line : Log.i(java.lang.String)
+ * Expected Source: line 42: getDeviceId()
+ * Expected Sink: line 47: Log.i(java.lang.String, java.lang.String)
  * Number of expected flows: 1
  *
  * Flow Path:
