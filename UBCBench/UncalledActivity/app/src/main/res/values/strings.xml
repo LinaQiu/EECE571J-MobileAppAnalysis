@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">UncalledActivity</string>
+    <string name="title_activity_called">CalledActivity</string>
+    <string name="title_activity_uncalled">UncalledActivity</string>
+</resources>
