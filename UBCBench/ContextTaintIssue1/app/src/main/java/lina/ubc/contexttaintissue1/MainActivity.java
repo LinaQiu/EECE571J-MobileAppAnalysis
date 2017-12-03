@@ -1,4 +1,4 @@
-package lina.ubc.contexttaintissue;
+package lina.ubc.contexttaintissue1;
 
 import android.app.Activity;
 import android.os.Bundle;

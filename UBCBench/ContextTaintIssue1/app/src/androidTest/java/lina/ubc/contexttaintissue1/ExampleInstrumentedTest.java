@@ -1,4 +1,4 @@
-package lina.ubc.contexttaintissue;
+package lina.ubc.contexttaintissue1;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
