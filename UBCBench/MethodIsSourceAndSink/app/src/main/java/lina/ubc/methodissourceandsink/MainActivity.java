@@ -3,6 +3,14 @@ package lina.ubc.methodissourceandsink;
 import android.app.Activity;
 import android.os.Bundle;
 
+/**
+ * This is a test case used to show that in the full source and sinks list that DroidSafe generates for FlowDroid, there are cases when DroidSafe
+ * will consider the same method as source and sink at the same time, which is not right.
+ *
+ * "<java.lang.Runtime: java.lang.Process exec(java.lang.String[])>" would be a good example for explaining this.
+ *
+ * There should not be any flow in this test case.
+ */
 public class MainActivity extends Activity {
 
     @Override
