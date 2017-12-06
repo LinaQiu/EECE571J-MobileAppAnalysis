@@ -8,35 +8,23 @@ import android.os.Bundle;
 /**
  * This is a test case used to replicate the branching issue that we found in FDroid app: 8. Multimedia: 4K_org.bitbucket.tickytacky.mirrormirror_4.apk
  * We extacted the relevant sources and sinks, simplified the FDroid multimedia app, and then built our own UBCBench app, branching1.
- * Expected sources: getParameters() && getSupportedPreviewSizes()
+ * Expected sources: getParameters()
  * Expected sink: Log.d(java.lang.String,java.lang.String)
- * Number of expected leaks: 4
+ * Number of expected leaks: 2
  * Flow Paths:
  * Path1:
- * line 55: Camera.Parameters parameters = mCamera.getParameters() -->
- * line 57: Camera.Size previewSize = parameters.getSupportedPreviewSizes().get(0) -->
- * line 59: ratioPreview = (double)previewSize.height / previewSize.width -->
- * line 63: scaleY = (float)(constNum / ratioPreview) -->
- * line 68: matrix.setScale(scaleX, scaleY) --> leak1
+ * line 43: Camera.Parameters parameters = mCamera.getParameters() -->
+ * line 45: Camera.Size previewSize = parameters.getPreviewSize() -->
+ * line 47: ratioPreview = (double)previewSize.height / previewSize.width -->
+ * line 51: scaleY = (float)(constNum / ratioPreview) -->
+ * line 56: matrix.setScale(scaleX, scaleY) --> leak1
  *
  * Path2:
- * line 55: Camera.Parameters parameters = mCamera.getParameters() -->
- * line 57: Camera.Size previewSize = parameters.getSupportedPreviewSizes().get(0) -->
- * line 59: ratioPreview = (double)previewSize.height / previewSize.width -->
- * line 65: scaleX = (float)(ratioPreview / randomNum) -->
- * line 68: matrix.setScale(scaleX, scaleY) --> leak2
- *
- * Path3:
- * line 57: Camera.Size previewSize = parameters.getSupportedPreviewSizes().get(0) -->
- * line 59: ratioPreview = (double)previewSize.height / previewSize.width -->
- * line 63: scaleY = (float)(constNum / ratioPreview) -->
- * line 68: matrix.setScale(scaleX, scaleY) --> leak3
- *
- * Path4:
- * line 57: Camera.Size previewSize = parameters.getSupportedPreviewSizes().get(0) -->
- * line 59: ratioPreview = (double)previewSize.height / previewSize.width -->
- * line 65: scaleX = (float)(ratioPreview / randomNum) -->
- * line 68: matrix.setScale(scaleX, scaleY) --> leak4
+ * line 43: Camera.Parameters parameters = mCamera.getParameters() -->
+ * line 45: Camera.Size previewSize = parameters.getPreviewSize() -->
+ * line 47: ratioPreview = (double)previewSize.height / previewSize.width -->
+ * line 53: scaleX = (float)(ratioPreview / randomNum) -->
+ * line 56: matrix.setScale(scaleX, scaleY) --> leak2
  *
  */
 public class MainActivity extends Activity {
@@ -54,7 +42,7 @@ public class MainActivity extends Activity {
 
         Camera.Parameters parameters = mCamera.getParameters(); // Source1: <android.hardware.Camera: android.hardware.Camera$Parameters getParameters()> -> _SOURCE_
 
-        Camera.Size previewSize = parameters.getSupportedPreviewSizes().get(0); // Source2: <android.hardware.Camera$Parameters: java.util.List getSupportedPreviewSizes()> -> _SOURCE_
+        Camera.Size previewSize = parameters.getPreviewSize(); // Source2: <android.hardware.Camera$Parameters: java.util.List getSupportedPreviewSizes()> -> _SOURCE_
 
         ratioPreview = (double)previewSize.height / previewSize.width;
 
