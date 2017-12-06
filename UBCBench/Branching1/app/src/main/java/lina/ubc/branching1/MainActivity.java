@@ -40,9 +40,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         mCamera = Camera.open(1);
 
-        Camera.Parameters parameters = mCamera.getParameters(); // Source1: <android.hardware.Camera: android.hardware.Camera$Parameters getParameters()> -> _SOURCE_
+        Camera.Parameters parameters = mCamera.getParameters(); // Source: <android.hardware.Camera: android.hardware.Camera$Parameters getParameters()> -> _SOURCE_
 
-        Camera.Size previewSize = parameters.getPreviewSize(); // Source2: <android.hardware.Camera$Parameters: java.util.List getSupportedPreviewSizes()> -> _SOURCE_
+        Camera.Size previewSize = parameters.getPreviewSize();
 
         ratioPreview = (double)previewSize.height / previewSize.width;
 
