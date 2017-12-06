@@ -1,46 +1,71 @@
 package lina.ubc.branching1;
 
 import android.app.Activity;
+import android.graphics.Matrix;
+import android.hardware.Camera;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
-import android.util.Log;
 
 /**
- * This is a test case used to explain the branching issue of FlowDroid, IccTA, Amandroid, and DroidSafe.
- * Expected source: getDeviceId()
- * Expected sink: Log.d(java.lang.String, java.lang.String)
- * Number of expected leaks: 2
+ * This is a test case used to replicate the branching issue that we found in FDroid app: 8. Multimedia: 4K_org.bitbucket.tickytacky.mirrormirror_4.apk
+ * We extacted the relevant sources and sinks, simplified the FDroid multimedia app, and then built our own UBCBench app, branching1.
+ * Expected sources: getParameters() && getSupportedPreviewSizes()
+ * Expected sink: Log.d(java.lang.String,java.lang.String)
+ * Number of expected leaks: 4
  * Flow Paths:
  * Path1:
- * line 35: String deviceId = tpm.getDeviceId() -->
- * line 38: deviceIdAppendWith1=deviceId+"1" -->
- * line 44: Log.d("Branching1", "Device Id appended with 1: "+deviceIdAppendWith1+"Device Id appended with 10: "+deviceIdAppendWith10);
+ * line 55: Camera.Parameters parameters = mCamera.getParameters() -->
+ * line 57: Camera.Size previewSize = parameters.getSupportedPreviewSizes().get(0) -->
+ * line 59: ratioPreview = (double)previewSize.height / previewSize.width -->
+ * line 63: scaleY = (float)(constNum / ratioPreview) -->
+ * line 68: matrix.setScale(scaleX, scaleY) --> leak1
  *
  * Path2:
- * line 35: String deviceId = tpm.getDeviceId() -->
- * line 40: deviceIdAppendWith10=deviceId+"10" -->
- * line 44: Log.d("Branching1", "Device Id appended with 1: "+deviceIdAppendWith1+"Device Id appended with 10: "+deviceIdAppendWith10);
+ * line 55: Camera.Parameters parameters = mCamera.getParameters() -->
+ * line 57: Camera.Size previewSize = parameters.getSupportedPreviewSizes().get(0) -->
+ * line 59: ratioPreview = (double)previewSize.height / previewSize.width -->
+ * line 65: scaleX = (float)(ratioPreview / randomNum) -->
+ * line 68: matrix.setScale(scaleX, scaleY) --> leak2
+ *
+ * Path3:
+ * line 57: Camera.Size previewSize = parameters.getSupportedPreviewSizes().get(0) -->
+ * line 59: ratioPreview = (double)previewSize.height / previewSize.width -->
+ * line 63: scaleY = (float)(constNum / ratioPreview) -->
+ * line 68: matrix.setScale(scaleX, scaleY) --> leak3
+ *
+ * Path4:
+ * line 57: Camera.Size previewSize = parameters.getSupportedPreviewSizes().get(0) -->
+ * line 59: ratioPreview = (double)previewSize.height / previewSize.width -->
+ * line 65: scaleX = (float)(ratioPreview / randomNum) -->
+ * line 68: matrix.setScale(scaleX, scaleY) --> leak4
+ *
  */
 public class MainActivity extends Activity {
+    private Camera mCamera;
+    private float randomNum;
+    private float scaleX;
+    private float scaleY;
+    private double ratioPreview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mCamera = Camera.open(1);
 
-        String deviceIdAppendWith1=null;
-        String deviceIdAppendWith10=null;
+        Camera.Parameters parameters = mCamera.getParameters(); // Source1: <android.hardware.Camera: android.hardware.Camera$Parameters getParameters()> -> _SOURCE_
 
-        TelephonyManager tpm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
-        String deviceId = tpm.getDeviceId();    // Source: <android.telephony.TelephonyManager: java.lang.String getDeviceId()> -> _SOURCE_
+        Camera.Size previewSize = parameters.getSupportedPreviewSizes().get(0); // Source2: <android.hardware.Camera$Parameters: java.util.List getSupportedPreviewSizes()> -> _SOURCE_
 
-        if (Math.random()>50){
-            deviceIdAppendWith1=deviceId+"1";
-        }else {
-            deviceIdAppendWith10=deviceId+"10";
+        ratioPreview = (double)previewSize.height / previewSize.width;
+
+        randomNum = (float) Math.random()*2;
+        if (randomNum > ratioPreview) {
+            scaleY = (float)(randomNum / ratioPreview);
+        } else {
+            scaleX = (float)(ratioPreview / randomNum);
         }
+        Matrix matrix = new Matrix();
+        matrix.setScale(scaleX, scaleY);    // Sink: <android.graphics.Matrix: void setScale(float,float)> -> _SINK_
 
-        // Sink: <android.util.Log: int d(java.lang.String,java.lang.String)> -> _SINK_
-        Log.d("Branching1", "Device Id appended with 1: "+deviceIdAppendWith1+"Device Id appended with 10: "+deviceIdAppendWith10);
     }
 }
