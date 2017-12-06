@@ -2,18 +2,18 @@ package lina.ubc.contexttaintissue1;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 
 /**
  * This is a test case used to explain Amandroid's false positive related to $this taint issue.
  * To be more specific, Amandroid taints $this for all api_source.
  * Expected source: getDeviceId()
- * Expected sink: Log.i(java.lang.String, java.lang.String)
+ * Expected sink: sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)
  * Number of expected flow: 0
  *
  * False positive flow that Amandroid reported:
- * tpm.getDeviceId() --> Log.i("ContextTaint", "Telephony manager: "+tpm)
+ * tpm.getDeviceId() --> sms.sendTextMessage("+49 4444", null, "Telephony manager: "+tpm, null, null)
  */
 public class MainActivity extends Activity {
 
@@ -24,7 +24,9 @@ public class MainActivity extends Activity {
 
         TelephonyManager tpm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
         tpm.getDeviceId();      // Source: <android.telephony.TelephonyManager: java.lang.String getDeviceId()> -> _SOURCE_
-        Log.i("ContextTaint", "Telephony manager: "+tpm);   // Sink: <android.util.Log: int i(java.lang.String,java.lang.String)> -> _SINK_
+
+        SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage("+49 4444", null, "Telephony manager: "+tpm, null, null);   // Sink: <android.telephony.SmsManager: void sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)> -> _SINK_
 
     }
 
