@@ -9,7 +9,7 @@ import android.os.Bundle;
  * This is a test case used to replicate the branching issue that we found in FDroid app: 8. Multimedia: 4K_org.bitbucket.tickytacky.mirrormirror_4.apk
  * We extacted the relevant sources and sinks, simplified the FDroid multimedia app, and then built our own UBCBench app, branching1.
  * Expected sources: getParameters()
- * Expected sink: Log.d(java.lang.String,java.lang.String)
+ * Expected sink: setScale(float,float)
  * Number of expected leaks: 2
  * Flow Paths:
  * Path1:
