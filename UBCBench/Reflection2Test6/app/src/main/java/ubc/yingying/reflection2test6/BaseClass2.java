@@ -1,4 +1,4 @@
-package ubc.yingying.reflection2test5;
+package ubc.yingying.reflection2test6;
 
 /**
  * Created by dora on 2017-12-02.

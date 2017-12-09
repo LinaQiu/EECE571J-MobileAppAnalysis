@@ -3,69 +3,63 @@ package ubc.yingying.reflection2test5;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
+import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
 
 
 
 /**
- * @Description The benchmark is an extension of DroidBench-Reflection-Reflection2.
+ * @Description The benchmark is an extension of DroidBench-Reflection-Reflection2 and UBCBench-Reflection2test1, Reflection2test2, and Reflection2test6.
  *
- * This benchmark is to test
- * (1) if try-catch block and the sink we use has effects on tool performance
- * (2) further investigates ReflectionTest4. Compared with which, introduced 1 more flow from a different baseClass from the instance concrete1;
+ * When there are two derived class from different base class, the tool should be able to distinguish them during reflection
  *
- *
- *
+ * (Specific to this testcase, the tool should know ConcreteClass2 is derived from BaseClass and ConcreteClass4 is
+ * derived from BaseClass2, but there is no flow as the two sources are not tainted at all)
  *
  * @ExpectedSources:
- * line 60: getDeviceId()
- * line 61: getDeviceId()
- * line 62: getDeviceId()
- * line 63: getDeviceId()
+ * line 44: getDeviceId()
+ * line 45: getDeviceId()
  *
  * @ExpectedSinks:
- * line 65: [leak] Log.i("concrete1,leak", concrete1.foo());
- * line 66: [no leak] Log.i("concrete2,no leak", concrete2.foo());
- * line 67: [leak] Log.i("concrete3,leak", concrete3.foo());
- * line 68: [no leak] Log.i("concrete4,no leak", concrete4.foo());
+ * line 48: [leak] sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)
+ * line 49: [leak] sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)
  *
- * @NumberOfExpectedLeaks: 2
- *
- * @FlowPaths:
- * Path1:
- * line 60: concrete1.imei = telephonyManager.getDeviceId(); -->
- * line 65: Log.i("concrete1,leak", concrete1.foo());  --> leak
- *
- * Path2:
- * line 62: concrete3.imei = telephonyManager.getDeviceId(); -->
- * line 67: Log.i("concrete4,no leak", concrete4.foo());  --> leak
+ * @NumberOfExpectedLeaks: 0
  *
  */
 
 public class MainActivity extends Activity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ConcreteClass1 concrete1 = new ConcreteClass1();
-        ConcreteClass2 concrete2 = new ConcreteClass2();
-        ConcreteClass3 concrete3 = new ConcreteClass3();
-        ConcreteClass4 concrete4 = new ConcreteClass4();
+        try {
 
-        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        concrete1.imei = telephonyManager.getDeviceId(); // source
-        concrete2.imei = telephonyManager.getDeviceId(); // source
-        concrete3.imei = telephonyManager.getDeviceId(); // source
-        concrete4.imei = telephonyManager.getDeviceId(); // source
+            TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            SmsManager sms = SmsManager.getDefault();
 
-        Log.i("concrete1,leak", concrete1.foo());  // sink, leak
-        Log.i("concrete2,no leak", concrete2.foo()); // sink, no leak
-        Log.i("concrete3,leak", concrete3.foo()); // sink, leak
-        Log.i("concrete4,no leak", concrete4.foo()); // sink, no leak
+            BaseClass bc2 = (BaseClass) Class.forName("ubc.yingying.reflection2test5.ConcreteClass2").newInstance();
+            bc2.imei = telephonyManager.getDeviceId(); // source
+            sms.sendTextMessage("+49 2222", null, bc2.foo(), null,null); // sink, leak
+
+            BaseClass2 bc4 = (BaseClass2) Class.forName("ubc.yingying.reflection2test5.ConcreteClass4").newInstance();
+            bc4.imei = telephonyManager.getDeviceId(); // source
+            sms.sendTextMessage("+49 4444", null, bc4.foo(),null,null);  // sink, leak
+
+
+
+        } catch (InstantiationException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
 
