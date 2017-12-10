@@ -18,11 +18,11 @@ import android.telephony.TelephonyManager;
  *
  * @ExpectedSources:
  * line 44: getDeviceId()
- * line 45: getDeviceId()
+ * line 52: getDeviceId()
  *
  * @ExpectedSinks:
- * line 48: [leak] sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)
- * line 49: [leak] sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)
+ * line 45: [leak] sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)
+ * line 53: [leak] sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)
  *
  * @NumberOfExpectedLeaks: 0
  *
@@ -37,16 +37,20 @@ public class MainActivity extends Activity {
 
         try {
 
-            TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-            SmsManager sms = SmsManager.getDefault();
+            TelephonyManager telephonyManager2 = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            SmsManager sms2 = SmsManager.getDefault();
 
             BaseClass bc2 = (BaseClass) Class.forName("ubc.yingying.reflection2test5.ConcreteClass2").newInstance();
-            bc2.imei = telephonyManager.getDeviceId(); // source
-            sms.sendTextMessage("+49 2222", null, bc2.foo(), null,null); // sink, leak
+            bc2.imei = telephonyManager2.getDeviceId(); // source
+            sms2.sendTextMessage("+49 2222", null, bc2.foo(), null,null); // sink, no leak
+
+
+            TelephonyManager telephonyManager4 = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            SmsManager sms4 = SmsManager.getDefault();
 
             BaseClass2 bc4 = (BaseClass2) Class.forName("ubc.yingying.reflection2test5.ConcreteClass4").newInstance();
-            bc4.imei = telephonyManager.getDeviceId(); // source
-            sms.sendTextMessage("+49 4444", null, bc4.foo(),null,null);  // sink, leak
+            bc4.imei = telephonyManager4.getDeviceId(); // source
+            sms4.sendTextMessage("+49 4444", null, bc4.foo(),null,null);  // sink, no leak
 
 
 

@@ -16,19 +16,19 @@ import android.util.Log;
  *
  *
  * @ExpectedSources:
- * line 50: getDeviceId()
- * line 51: getDeviceId()
+ * line 50: getDeviceId() [LEAK]
+ * line 53: getDeviceId() [NO LEAK]
  *
  * @ExpectedSinks:
- * line 53: [leak] Log.i("concrete1,leak", concrete1.foo());
- * line 54: [no leak] Log.i("concrete2,no leak", concrete2.foo());
+ * line 55: Log.i("concrete1,leak", concrete1.foo()); [LEAK]
+ * line 56: Log.i("concrete2,no leak", concrete2.foo()); [NO LEAK]
  *
  * @NumberOfExpectedLeaks: 1
  *
  * @FlowPaths:
  * Path1:
  * line 50: concrete1.imei = telephonyManager.getDeviceId(); -->
- * line 53: Log.i("concrete1,leak", concrete1.foo()); --> leak
+ * line 55: Log.i("concrete1,leak", concrete1.foo()); --> leak
  *
  *
  */
@@ -46,9 +46,11 @@ public class MainActivity extends Activity {
             BaseClass concrete2 = (BaseClass) Class.forName("ubc.yingying.reflection2test3.ConcreteClass2").newInstance();
 
 
-            TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-            concrete1.imei = telephonyManager.getDeviceId(); // source
-            concrete2.imei = telephonyManager.getDeviceId(); // source
+            TelephonyManager telephonyManager1 = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            concrete1.imei = telephonyManager1.getDeviceId(); // source
+
+            TelephonyManager telephonyManager2 = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            concrete2.imei = telephonyManager2.getDeviceId(); // source
 
             Log.i("concrete1,leak", concrete1.foo()); // sink, leak
             Log.i("concrete2,no leak", concrete2.foo()); // sink, no leak

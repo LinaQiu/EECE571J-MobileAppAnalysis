@@ -19,19 +19,19 @@ import android.telephony.TelephonyManager;
  *
  *
  * @ExpectedSources:
- * line 53: getDeviceId()
- * line 57: getDeviceId()
+ * line 51: getDeviceId()
+ * line 58: getDeviceId()
  *
  * @ExpectedSinks:
- * line 54: [leak] sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)
- * line 58: [no leak] sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)
+ * line 52: [leak] sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)
+ * line 59: [no leak] sendTextMessage(java.lang.String,java.lang.String,java.lang.String,android.app.PendingIntent,android.app.PendingIntent)
  *
  * @NumberOfExpectedLeaks: 1
  *
  * @FlowPaths:
  * Path1:
- * line 53: bc3.imei = telephonyManager.getDeviceId(); --> 
- * line 54: sms.sendTextMessage("+49 3333", null, bc3.foo(),null,null);  --> leak
+ * line 51: bc3.imei = telephonyManager.getDeviceId(); -->
+ * line 52: sms.sendTextMessage("+49 3333", null, bc3.foo(),null,null);  --> leak
  *
  */
 
@@ -45,17 +45,19 @@ public class MainActivity extends Activity {
 
         try {
 
-            TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-            SmsManager sms = SmsManager.getDefault();
-
-
+            TelephonyManager telephonyManager3 = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            SmsManager sms3 = SmsManager.getDefault();
             BaseClass2 bc3 = (BaseClass2) Class.forName("ubc.yingying.reflection2test2.ConcreteClass3").newInstance();
-            bc3.imei = telephonyManager.getDeviceId(); // source
-            sms.sendTextMessage("+49 3333", null, bc3.foo(),null,null);  // sink, leak
+            bc3.imei = telephonyManager3.getDeviceId(); // source
+            sms3.sendTextMessage("+49 3333", null, bc3.foo(),null,null);  // sink, leak
 
+
+            TelephonyManager telephonyManager4 = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            SmsManager sms4 = SmsManager.getDefault();
             BaseClass2 bc4 = (BaseClass2) Class.forName("ubc.yingying.reflection2test2.ConcreteClass4").newInstance();
-            bc4.imei = telephonyManager.getDeviceId(); // source
-            sms.sendTextMessage("+49 4444", null, bc4.foo(), null,null); // sink, no leak
+            bc4.imei = telephonyManager4.getDeviceId(); // source
+            sms4.sendTextMessage("+49 4444", null, bc4.foo(), null,null); // sink, no leak
+
 
         } catch (InstantiationException e) {
             // TODO Auto-generated catch block
