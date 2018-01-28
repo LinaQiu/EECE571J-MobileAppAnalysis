@@ -1,2 +1,0 @@
-HIGH: Start Activity with unresolved Intent [Line: com.example.android.apis.content.PickContact_apk 73]
-ELEVATED: API call analysis concludes that api call returns null value, could be that the DroidSafe model is inaccurate, check implementation. [Line: com.example.android.apis.content.PickContact_apk 114]
